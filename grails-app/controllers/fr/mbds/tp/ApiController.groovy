@@ -163,6 +163,14 @@ class ApiController {
                             userMessage.delete(flush: true)
                     }
 
+                    // On recupere la liste des Messages qui referencent le user/autheur que nous souhaitons effacer
+                    def messages = Message.findAllByAuthor(userInstance)
+                    // On itere sur la liste et efface chaque message
+                    messages.each {
+                        Message messageToDelete ->
+                            messageToDelete.delete(flush: true)
+                    }
+
                     // On recupere la liste des UserRole qui referencent le user que nous souhaitons effacer
                     def userRoles = UserRole.findAllByUser(userInstance)
                     // On itere sur la liste et efface chaque reference
@@ -194,7 +202,7 @@ class ApiController {
             case "POST":
                 def dobInstance = params.dob ? params.dob : null
                 def telInstance = params.tel ? params.tel : null
-                def userInstance = new User(username:params.username,password:params.password,firstName:params.firstNAme,lastName:params.lastName,mail:params.mail,dob:dobInstance,tel:telInstance)
+                def userInstance = new User(username:params.username,password:params.password,firstName:params.firstName,lastName:params.lastName,mail:params.mail,dob:dobInstance,tel:telInstance)
                 if (userInstance.save(flush: true))
                     render(status: 201)
                 if (response.status != 201)
