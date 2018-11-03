@@ -1,0 +1,1091 @@
+{
+  "info": {
+    "_postman_id": "ed54c29c-8379-46bf-b2ce-204ef044fb6b",
+    "name": "TP_WebService_Marchand",
+    "description": "Collection des requetes http dans le cadre du TP Web service MBDS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "5f9f12b4-5461-420e-8af5-64eb2d75b3e1",
+      "name": "http://localhost:8080/api/message/1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "00cb731e-6d67-4835-a889-b8813d377d45",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": null,
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:8080/api/message/1",
+        "description": "Requete: GET sur message\nStatus: 200 OK\nDesc: Recupere message avec id=1"
+      },
+      "response": [
+        {
+          "id": "5246b205-fa2a-46df-a893-36d55286647b",
+          "name": "http://localhost:8080/api/message/1",
+          "originalRequest": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/message/1"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/xml;charset=UTF-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 16:49:37 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message id=\"1\">\n    <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n    <messageContent>lala</messageContent>\n    <author id=\"2\" />\n</message>"
+        }
+      ]
+    },
+    {
+      "_postman_id": "b823b693-d259-442f-a2ab-cfed1ca34ef3",
+      "name": "http://localhost:8080/api/message",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "3351e7fb-8cc8-4532-9a8e-3ce5a4ee20fd",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": null,
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:8080/api/message",
+        "description": "Requete : GET sur message\nStatus : 200 OK\nDescription : redirection sur /messages/ et recupere tous les messages"
+      },
+      "response": [
+        {
+          "id": "5d8cbdb0-f3b5-4b9f-8f3e-b0a094067ec3",
+          "name": "http://localhost:8080/api/message",
+          "originalRequest": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/message"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/xml;charset=UTF-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 16:59:40 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<list>\n    <message id=\"1\">\n        <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"2\" />\n    </message>\n    <message id=\"2\">\n        <dateCreated>2018-11-03 16:06:16.968 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"3\" />\n    </message>\n    <message id=\"3\">\n        <dateCreated>2018-11-03 16:06:17.124 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"4\" />\n    </message>\n    <message id=\"4\">\n        <dateCreated>2018-11-03 16:06:17.280 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"5\" />\n    </message>\n    <message id=\"5\">\n        <dateCreated>2018-11-03 16:06:17.451 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"6\" />\n    </message>\n    <message id=\"6\">\n        <dateCreated>2018-11-03 16:06:17.623 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"7\" />\n    </message>\n    <message id=\"7\">\n        <dateCreated>2018-11-03 16:06:17.779 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"8\" />\n    </message>\n    <message id=\"8\">\n        <dateCreated>2018-11-03 16:06:17.935 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"9\" />\n    </message>\n    <message id=\"9\">\n        <dateCreated>2018-11-03 16:06:18.75 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"10\" />\n    </message>\n    <message id=\"10\">\n        <dateCreated>2018-11-03 16:06:18.286 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"11\" />\n    </message>\n    <message id=\"11\">\n        <dateCreated>2018-11-03 16:06:18.427 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"12\" />\n    </message>\n    <message id=\"12\">\n        <dateCreated>2018-11-03 16:06:18.601 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"13\" />\n    </message>\n    <message id=\"13\">\n        <dateCreated>2018-11-03 16:06:18.758 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"14\" />\n    </message>\n    <message id=\"14\">\n        <dateCreated>2018-11-03 16:06:18.917 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"15\" />\n    </message>\n    <message id=\"15\">\n        <dateCreated>2018-11-03 16:06:19.74 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"16\" />\n    </message>\n    <message id=\"16\">\n        <dateCreated>2018-11-03 16:06:19.230 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"17\" />\n    </message>\n    <message id=\"17\">\n        <dateCreated>2018-11-03 16:06:19.449 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"18\" />\n    </message>\n    <message id=\"18\">\n        <dateCreated>2018-11-03 16:06:19.667 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"19\" />\n    </message>\n    <message id=\"19\">\n        <dateCreated>2018-11-03 16:06:19.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"20\" />\n    </message>\n    <message id=\"20\">\n        <dateCreated>2018-11-03 16:06:20.78 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"21\" />\n    </message>\n    <message id=\"22\">\n        <dateCreated>2018-11-03 16:06:21.14 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"23\" />\n    </message>\n    <message id=\"23\">\n        <dateCreated>2018-11-03 16:06:21.528 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"24\" />\n    </message>\n    <message id=\"24\">\n        <dateCreated>2018-11-03 16:06:22.43 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"25\" />\n    </message>\n    <message id=\"25\">\n        <dateCreated>2018-11-03 16:06:22.620 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"26\" />\n    </message>\n    <message id=\"26\">\n        <dateCreated>2018-11-03 16:06:23.120 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"27\" />\n    </message>\n    <message id=\"27\">\n        <dateCreated>2018-11-03 16:06:23.572 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"28\" />\n    </message>\n    <message id=\"28\">\n        <dateCreated>2018-11-03 16:06:23.900 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"29\" />\n    </message>\n    <message id=\"29\">\n        <dateCreated>2018-11-03 16:06:24.243 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"30\" />\n    </message>\n    <message id=\"30\">\n        <dateCreated>2018-11-03 16:06:24.524 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"31\" />\n    </message>\n    <message id=\"31\">\n        <dateCreated>2018-11-03 16:06:24.836 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"32\" />\n    </message>\n    <message id=\"32\">\n        <dateCreated>2018-11-03 16:06:25.101 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"33\" />\n    </message>\n    <message id=\"33\">\n        <dateCreated>2018-11-03 16:06:25.366 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"34\" />\n    </message>\n    <message id=\"34\">\n        <dateCreated>2018-11-03 16:06:25.600 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"35\" />\n    </message>\n    <message id=\"35\">\n        <dateCreated>2018-11-03 16:06:25.834 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"36\" />\n    </message>\n    <message id=\"36\">\n        <dateCreated>2018-11-03 16:06:26.52 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"37\" />\n    </message>\n    <message id=\"37\">\n        <dateCreated>2018-11-03 16:06:26.271 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"38\" />\n    </message>\n    <message id=\"38\">\n        <dateCreated>2018-11-03 16:06:26.489 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"39\" />\n    </message>\n    <message id=\"39\">\n        <dateCreated>2018-11-03 16:06:26.708 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"40\" />\n    </message>\n    <message id=\"40\">\n        <dateCreated>2018-11-03 16:06:26.910 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"41\" />\n    </message>\n    <message id=\"41\">\n        <dateCreated>2018-11-03 16:06:27.113 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"42\" />\n    </message>\n    <message id=\"42\">\n        <dateCreated>2018-11-03 16:06:27.285 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"43\" />\n    </message>\n    <message id=\"43\">\n        <dateCreated>2018-11-03 16:06:27.472 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"44\" />\n    </message>\n    <message id=\"44\">\n        <dateCreated>2018-11-03 16:06:27.644 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"45\" />\n    </message>\n    <message id=\"45\">\n        <dateCreated>2018-11-03 16:06:27.831 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"46\" />\n    </message>\n    <message id=\"46\">\n        <dateCreated>2018-11-03 16:06:28.24 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"47\" />\n    </message>\n    <message id=\"47\">\n        <dateCreated>2018-11-03 16:06:28.196 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"48\" />\n    </message>\n    <message id=\"48\">\n        <dateCreated>2018-11-03 16:06:28.367 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"49\" />\n    </message>\n    <message id=\"49\">\n        <dateCreated>2018-11-03 16:06:28.547 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"50\" />\n    </message>\n    <message id=\"50\">\n        <dateCreated>2018-11-03 16:06:28.742 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"51\" />\n    </message>\n    <message id=\"51\">\n        <dateCreated>2018-11-03 17:52:21.654 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"52\">\n        <dateCreated>2018-11-03 17:52:33.734 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"53\">\n        <dateCreated>2018-11-03 17:53:22.359 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n</list>"
+        }
+      ]
+    },
+    {
+      "_postman_id": "8dda2908-e151-4f4e-840e-48d1b2c4a3d7",
+      "name": "http://localhost:8080/api/messages",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "62b67328-c2b3-44b2-b3f8-b12e8bd901ec",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": null,
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:8080/api/messages",
+        "description": "Requete : GET sur messages\nStatus : 200 OK\nDescription : recupere tous les messages"
+      },
+      "response": [
+        {
+          "id": "95104a99-2987-41dc-b6c0-7e083e183522",
+          "name": "http://localhost:8080/api/messages",
+          "originalRequest": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/messages"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/xml;charset=UTF-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 16:58:35 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<list>\n    <message id=\"1\">\n        <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"2\" />\n    </message>\n    <message id=\"2\">\n        <dateCreated>2018-11-03 16:06:16.968 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"3\" />\n    </message>\n    <message id=\"3\">\n        <dateCreated>2018-11-03 16:06:17.124 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"4\" />\n    </message>\n    <message id=\"4\">\n        <dateCreated>2018-11-03 16:06:17.280 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"5\" />\n    </message>\n    <message id=\"5\">\n        <dateCreated>2018-11-03 16:06:17.451 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"6\" />\n    </message>\n    <message id=\"6\">\n        <dateCreated>2018-11-03 16:06:17.623 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"7\" />\n    </message>\n    <message id=\"7\">\n        <dateCreated>2018-11-03 16:06:17.779 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"8\" />\n    </message>\n    <message id=\"8\">\n        <dateCreated>2018-11-03 16:06:17.935 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"9\" />\n    </message>\n    <message id=\"9\">\n        <dateCreated>2018-11-03 16:06:18.75 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"10\" />\n    </message>\n    <message id=\"10\">\n        <dateCreated>2018-11-03 16:06:18.286 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"11\" />\n    </message>\n    <message id=\"11\">\n        <dateCreated>2018-11-03 16:06:18.427 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"12\" />\n    </message>\n    <message id=\"12\">\n        <dateCreated>2018-11-03 16:06:18.601 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"13\" />\n    </message>\n    <message id=\"13\">\n        <dateCreated>2018-11-03 16:06:18.758 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"14\" />\n    </message>\n    <message id=\"14\">\n        <dateCreated>2018-11-03 16:06:18.917 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"15\" />\n    </message>\n    <message id=\"15\">\n        <dateCreated>2018-11-03 16:06:19.74 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"16\" />\n    </message>\n    <message id=\"16\">\n        <dateCreated>2018-11-03 16:06:19.230 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"17\" />\n    </message>\n    <message id=\"17\">\n        <dateCreated>2018-11-03 16:06:19.449 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"18\" />\n    </message>\n    <message id=\"18\">\n        <dateCreated>2018-11-03 16:06:19.667 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"19\" />\n    </message>\n    <message id=\"19\">\n        <dateCreated>2018-11-03 16:06:19.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"20\" />\n    </message>\n    <message id=\"20\">\n        <dateCreated>2018-11-03 16:06:20.78 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"21\" />\n    </message>\n    <message id=\"22\">\n        <dateCreated>2018-11-03 16:06:21.14 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"23\" />\n    </message>\n    <message id=\"23\">\n        <dateCreated>2018-11-03 16:06:21.528 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"24\" />\n    </message>\n    <message id=\"24\">\n        <dateCreated>2018-11-03 16:06:22.43 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"25\" />\n    </message>\n    <message id=\"25\">\n        <dateCreated>2018-11-03 16:06:22.620 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"26\" />\n    </message>\n    <message id=\"26\">\n        <dateCreated>2018-11-03 16:06:23.120 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"27\" />\n    </message>\n    <message id=\"27\">\n        <dateCreated>2018-11-03 16:06:23.572 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"28\" />\n    </message>\n    <message id=\"28\">\n        <dateCreated>2018-11-03 16:06:23.900 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"29\" />\n    </message>\n    <message id=\"29\">\n        <dateCreated>2018-11-03 16:06:24.243 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"30\" />\n    </message>\n    <message id=\"30\">\n        <dateCreated>2018-11-03 16:06:24.524 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"31\" />\n    </message>\n    <message id=\"31\">\n        <dateCreated>2018-11-03 16:06:24.836 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"32\" />\n    </message>\n    <message id=\"32\">\n        <dateCreated>2018-11-03 16:06:25.101 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"33\" />\n    </message>\n    <message id=\"33\">\n        <dateCreated>2018-11-03 16:06:25.366 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"34\" />\n    </message>\n    <message id=\"34\">\n        <dateCreated>2018-11-03 16:06:25.600 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"35\" />\n    </message>\n    <message id=\"35\">\n        <dateCreated>2018-11-03 16:06:25.834 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"36\" />\n    </message>\n    <message id=\"36\">\n        <dateCreated>2018-11-03 16:06:26.52 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"37\" />\n    </message>\n    <message id=\"37\">\n        <dateCreated>2018-11-03 16:06:26.271 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"38\" />\n    </message>\n    <message id=\"38\">\n        <dateCreated>2018-11-03 16:06:26.489 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"39\" />\n    </message>\n    <message id=\"39\">\n        <dateCreated>2018-11-03 16:06:26.708 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"40\" />\n    </message>\n    <message id=\"40\">\n        <dateCreated>2018-11-03 16:06:26.910 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"41\" />\n    </message>\n    <message id=\"41\">\n        <dateCreated>2018-11-03 16:06:27.113 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"42\" />\n    </message>\n    <message id=\"42\">\n        <dateCreated>2018-11-03 16:06:27.285 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"43\" />\n    </message>\n    <message id=\"43\">\n        <dateCreated>2018-11-03 16:06:27.472 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"44\" />\n    </message>\n    <message id=\"44\">\n        <dateCreated>2018-11-03 16:06:27.644 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"45\" />\n    </message>\n    <message id=\"45\">\n        <dateCreated>2018-11-03 16:06:27.831 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"46\" />\n    </message>\n    <message id=\"46\">\n        <dateCreated>2018-11-03 16:06:28.24 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"47\" />\n    </message>\n    <message id=\"47\">\n        <dateCreated>2018-11-03 16:06:28.196 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"48\" />\n    </message>\n    <message id=\"48\">\n        <dateCreated>2018-11-03 16:06:28.367 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"49\" />\n    </message>\n    <message id=\"49\">\n        <dateCreated>2018-11-03 16:06:28.547 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"50\" />\n    </message>\n    <message id=\"50\">\n        <dateCreated>2018-11-03 16:06:28.742 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"51\" />\n    </message>\n    <message id=\"51\">\n        <dateCreated>2018-11-03 17:52:21.654 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"52\">\n        <dateCreated>2018-11-03 17:52:33.734 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"53\">\n        <dateCreated>2018-11-03 17:53:22.359 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n</list>"
+        }
+      ]
+    },
+    {
+      "_postman_id": "8796d3d8-135a-4083-855a-b4b4b29ddf03",
+      "name": "http://localhost:8080/api/message/",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7b20060a-1ad7-497f-bf10-34f7290a0fbf",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+              "});",
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "author.id",
+              "value": "1",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "messageContent",
+              "value": "yoWhatsUp",
+              "description": "",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/message/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "message",
+            ""
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1",
+              "equals": true,
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Requete : POST sur message\nStatus : 201 Created\nDescription : ajoute un message avec author.id et contenu du message"
+      },
+      "response": [
+        {
+          "id": "df58a7f7-5e96-48de-9ac7-96665e33ed5d",
+          "name": "http://localhost:8080/api/message/",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/message/"
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "plain",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 16:53:22 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": null
+        }
+      ]
+    },
+    {
+      "_postman_id": "57dcabbf-d94c-4802-a16e-94c6277c6e46",
+      "name": "http://localhost:8080/api/message/21",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "4c9c4079-8c53-4bc3-aac9-300692b36298",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "author.id",
+              "value": "1",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "messageContent",
+              "value": "yoWhatsUp1",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "receiver.id",
+              "value": "2",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/message/21",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "message",
+            "21"
+          ],
+          "query": [
+            {
+              "key": "idzerez",
+              "value": "zezer",
+              "equals": true,
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Requete : DELETE sur message\nStatus : 200 OK\nDescription : supprime le message avec l'id 21"
+      },
+      "response": [
+        {
+          "id": "62b38215-94da-46ec-a47e-36478a03a7c5",
+          "name": "http://localhost:8080/api/message/21",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/21",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "21"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html;charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 16:56:39 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "message effac\u00e9"
+        }
+      ]
+    },
+    {
+      "_postman_id": "30da2bbe-cc0a-4de9-a7a9-d6b4de6ccab6",
+      "name": "http://localhost:8080/api/message/999999",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "09130525-337f-4c01-88c2-57f18108e390",
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "author.id",
+              "value": "1",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "messageContent",
+              "value": "yoWhatsUp1",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "receiver.id",
+              "value": "2",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/message/999999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "message",
+            "999999"
+          ],
+          "query": [
+            {
+              "key": "idzerez",
+              "value": "zezer",
+              "equals": true,
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Requete : DELETE sur message\nStatus : 404 NotFound\nDescription : essaye d'effacer un message non existant"
+      },
+      "response": [
+        {
+          "id": "f47d7422-8a99-43ef-8af4-ee6354c5fc27",
+          "name": "http://localhost:8080/api/message/999999",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/999999",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "999999"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html;charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 17:02:25 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "message introuvable"
+        }
+      ]
+    },
+    {
+      "_postman_id": "c34b265f-6cd1-4d59-b400-8eb56959c2ad",
+      "name": "http://localhost:8080/api/message/999999",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "231b1f61-1379-4940-9aac-aa93fc2defcd",
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "author.id",
+              "value": "1",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "messageContent",
+              "value": "yoWhatsUp1",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "receiver.id",
+              "value": "2",
+              "description": "",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": "http://localhost:8080/api/message/999999",
+        "description": "Requete : GET sur message\nStatus : 404 Not Found\nDescription : Ne renvoie pas de message car le message n'existe pas"
+      },
+      "response": [
+        {
+          "id": "fa13e806-5eeb-47b1-860b-30b66a4c9e0a",
+          "name": "http://localhost:8080/api/message/999999",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/message/999999"
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "plain",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Length",
+              "value": "0"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 17:06:00 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": null
+        }
+      ]
+    },
+    {
+      "_postman_id": "158d76aa-5674-4e68-a86b-a1bc56f3b700",
+      "name": "http://localhost:8080/api/message/1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "messageContent",
+              "value": "changemoica",
+              "description": "",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/message/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "message",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "idzerez",
+              "value": "zezer",
+              "equals": true,
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Requete : PUT sur message\nStatus : 200 OK\nDescription : mise \u00e0 jour champs message 1"
+      },
+      "response": [
+        {
+          "id": "e3c90013-340f-4d48-bd1d-47460f9069ac",
+          "name": "http://localhost:8080/api/message/1",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "messageContent",
+                  "value": "changemoica",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/message/1"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html;charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 17:13:46 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "Mise \u00e0 jour effectu\u00e9e pour le message 1"
+        }
+      ]
+    },
+    {
+      "_postman_id": "59d8b9a6-48e8-44d5-946b-13d23a86ed8c",
+      "name": "http://localhost:8080/api/message/1",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/xml",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "messageContent",
+              "value": "changemoica",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/message/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "message",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "idzerez",
+              "value": "zezer",
+              "equals": true,
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Requete : GET sur message\nStatus : 200 OK\nDescription : observation du changement apres le PUT precedent"
+      },
+      "response": [
+        {
+          "id": "5f476860-9cbe-4cb5-8ae6-e72c846b96ee",
+          "name": "http://localhost:8080/api/message/1",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "messageContent",
+                  "value": "changemoica",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "xml",
+          "header": [
+            {
+              "key": "X-Application-Context",
+              "value": "application:development"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/xml;charset=UTF-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 03 Nov 2018 17:15:43 GMT"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message id=\"1\">\n    <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n    <messageContent>changemoica</messageContent>\n    <author id=\"2\" />\n</message>"
+        }
+      ]
+    }
+  ]
+}
