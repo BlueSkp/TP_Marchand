@@ -157,11 +157,20 @@ class ApiController {
                 if (userInstance) {
                     // On recupere la liste des UserMessage qui referencent le user que nous souhaitons effacer
                     def userMessages = UserMessage.findAllByUser(userInstance)
-                    // On itere sur la liste et effce chaque reference
+                    // On itere sur la liste et efface chaque reference
                     userMessages.each {
                         UserMessage userMessage ->
                             userMessage.delete(flush: true)
                     }
+
+                    // On recupere la liste des UserRole qui referencent le user que nous souhaitons effacer
+                    def userRoles = UserRole.findAllByUser(userInstance)
+                    // On itere sur la liste et efface chaque reference
+                    userRoles.each {
+                        UserRole userRole ->
+                            userRole.delete(flush: true)
+                    }
+
                     //on peut enfin effacer l'instance de User
                     userInstance.delete(flush: true)
                     //if (!messageInstance)
