@@ -197,7 +197,93 @@ class ApiController {
                 def userInstance = new User(username:params.username,password:params.password,firstName:params.firstNAme,lastName:params.lastName,mail:params.mail,dob:dobInstance,tel:telInstance)
                 if (userInstance.save(flush: true))
                     render(status: 201)
+                if (response.status != 201)
+                    response.status = 400
                 break
+
+        }
+
+    }
+
+    def messageToUser(){
+        if (request.getMethod().equals("POST")) {
+            def messageInstance
+
+            if (params.id)  // on doit retourner une instance de message
+            {
+                messageInstance = Message.get(params.id)
+                createNewUserMessage( params.receiver.id, messageInstance)
+            }else{
+                //Verifier auteur
+                def authorInstance = params.author.id ? User.get(params.author.id) : null
+
+                if (authorInstance) {
+                    //creer le message
+                    messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
+                    if (messageInstance.save(flush: true))
+                        createNewUserMessage( params.receiver.id, messageInstance)
+                }
+            }
+        }
+        else
+            response.status = 405
+    }
+
+    def messageToGroup(){
+        if (request.getMethod().equals("POST")) {
+            def messageInstance
+
+            if (params.id)  // on doit retourner une instance de message
+            {
+                messageInstance = Message.get(params.id)
+                createNewGroupMessage( params.role.id, messageInstance)
+            }else{
+                //Verifier auteur
+                def authorInstance = params.author.id ? User.get(params.author.id) : null
+
+                if (authorInstance) {
+                    //creer le message
+                    messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
+                    if (messageInstance.save(flush: true))
+                        createNewGroupMessage( params.role.id, messageInstance)
+                }
+            }
+            if (response.status != 201)
+                response.status = 400
+        }
+        else
+            response.status = 405
+    }
+
+
+    def createNewUserMessage( idreceiver , Message messageInstance){
+        // Ajouter destinataires
+        if (idreceiver)
+        {
+            def receiverInstance = User.get(idreceiver)
+            if (receiverInstance){
+                if (new UserMessage(user: receiverInstance, message: messageInstance).save(flush:true)){
+                    render(status: 201)
+                }
+            }
+        }
+        if (response.status != 201)
+            response.status = 400
+
+    }
+
+    def createNewGroupMessage( idGroupe , Message messageInstance){
+        // Ajouter destinataires
+        if (idGroupe)
+        {
+            def roleInstance = Role.get(idGroupe)
+            // On recupere la liste des UserRole du groupe Role voulu
+            def userRoles = UserRole.findAllByRole(roleInstance)
+            // On itere sur la liste et pour chaque user on creer un user message
+            userRoles.each {
+                UserMessage userMessage ->
+                    createNewUserMessage( userMessage.id , messageInstance)
+            }
 
         }
 
