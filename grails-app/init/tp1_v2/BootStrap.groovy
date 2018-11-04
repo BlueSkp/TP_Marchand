@@ -11,6 +11,8 @@ class BootStrap {
     def init = { servletContext ->
         def userAdmin = new User(username:"admin",password:"secret",firstName:"admin",lastName:"admin",mail:"admin@mali.com").save(flush:true,failOnError:true)
         def roleAdmin = new Role(authority:"ROLE_ADMIN").save(flush:true,failOnError:true)
+        def rolePromo2019 = new Role(authority:"ROLE_PROMO2019").save(flush:true,failOnError:true)
+        new Role(authority:"ROLE_MBDS").save(flush:true,failOnError:true)
         UserRole.create(userAdmin,roleAdmin,true)
 
 
@@ -20,6 +22,7 @@ class BootStrap {
 
             new Message(messageContent: "lala",author: userInstance).save(flush:true,failOnError:true)
 
+            UserRole.create(userInstance,rolePromo2019,true)
         }
 
         Message.list().each{
