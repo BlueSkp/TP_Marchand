@@ -80,7 +80,8 @@ class ApiController {
                 break
             case "POST":
                 //Verifier auteur
-                def authorInstance = params.author.id ? User.get(params.author.id) : null
+
+                def authorInstance = params.author ? params.author.id ? User.get(params.author.id) : null : null
                 def messageInstance
                 if (authorInstance) {
                     //creer le message
@@ -163,13 +164,7 @@ class ApiController {
                             userMessage.delete(flush: true)
                     }
 
-                    // On recupere la liste des Messages qui referencent le user/autheur que nous souhaitons effacer
-                    def messages = Message.findAllByAuthor(userInstance)
-                    // On itere sur la liste et efface chaque message
-                    messages.each {
-                        Message messageToDelete ->
-                            messageToDelete.delete(flush: true)
-                    }
+
 
                     // On recupere la liste des UserRole qui referencent le user que nous souhaitons effacer
                     def userRoles = UserRole.findAllByUser(userInstance)
@@ -177,6 +172,14 @@ class ApiController {
                     userRoles.each {
                         UserRole userRole ->
                             userRole.delete(flush: true)
+                    }
+
+                    // On recupere la liste des Messages qui referencent le user/autheur que nous souhaitons effacer
+                    def messages = Message.findAllByAuthor(userInstance)
+                    // On itere sur la liste et rends l'autheur à null pour chaque message
+                    messages.each {
+                        Message messageToUpdate ->
+                            messageToUpdate.setAuthor(null)
                     }
 
                     //on peut enfin effacer l'instance de User
