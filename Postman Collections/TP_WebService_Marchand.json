@@ -1,0 +1,3112 @@
+{
+  "info": {
+    "_postman_id": "ed54c29c-8379-46bf-b2ce-204ef044fb6b",
+    "name": "TP_WebService_Marchand",
+    "description": "Collection des requetes http dans le cadre du TP Web service MBDS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "730a93bb-5486-4995-acb4-417284b67c63",
+      "name": "message",
+      "description": "Toutes les requetes pour /api/message, api/messages",
+      "item": [
+        {
+          "_postman_id": "5f9f12b4-5461-420e-8af5-64eb2d75b3e1",
+          "name": "http://localhost:8080/api/message/1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "00cb731e-6d67-4835-a889-b8813d377d45",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/message/1",
+            "description": "Requete: GET sur message\nStatus: 200 OK\nDesc: Recupere message avec id=1"
+          },
+          "response": [
+            {
+              "id": "5246b205-fa2a-46df-a893-36d55286647b",
+              "name": "http://localhost:8080/api/message/1",
+              "originalRequest": {
+                "method": null,
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "http://localhost:8080/api/message/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 16:49:37 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message id=\"1\">\n    <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n    <messageContent>lala</messageContent>\n    <author id=\"2\" />\n</message>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "b823b693-d259-442f-a2ab-cfed1ca34ef3",
+          "name": "http://localhost:8080/api/message",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3351e7fb-8cc8-4532-9a8e-3ce5a4ee20fd",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/message",
+            "description": "Requete : GET sur message\nStatus : 200 OK\nDescription : redirection sur /messages/ et recupere tous les messages"
+          },
+          "response": [
+            {
+              "id": "5d8cbdb0-f3b5-4b9f-8f3e-b0a094067ec3",
+              "name": "http://localhost:8080/api/message",
+              "originalRequest": {
+                "method": null,
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "http://localhost:8080/api/message"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 16:59:40 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<list>\n    <message id=\"1\">\n        <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"2\" />\n    </message>\n    <message id=\"2\">\n        <dateCreated>2018-11-03 16:06:16.968 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"3\" />\n    </message>\n    <message id=\"3\">\n        <dateCreated>2018-11-03 16:06:17.124 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"4\" />\n    </message>\n    <message id=\"4\">\n        <dateCreated>2018-11-03 16:06:17.280 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"5\" />\n    </message>\n    <message id=\"5\">\n        <dateCreated>2018-11-03 16:06:17.451 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"6\" />\n    </message>\n    <message id=\"6\">\n        <dateCreated>2018-11-03 16:06:17.623 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"7\" />\n    </message>\n    <message id=\"7\">\n        <dateCreated>2018-11-03 16:06:17.779 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"8\" />\n    </message>\n    <message id=\"8\">\n        <dateCreated>2018-11-03 16:06:17.935 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"9\" />\n    </message>\n    <message id=\"9\">\n        <dateCreated>2018-11-03 16:06:18.75 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"10\" />\n    </message>\n    <message id=\"10\">\n        <dateCreated>2018-11-03 16:06:18.286 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"11\" />\n    </message>\n    <message id=\"11\">\n        <dateCreated>2018-11-03 16:06:18.427 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"12\" />\n    </message>\n    <message id=\"12\">\n        <dateCreated>2018-11-03 16:06:18.601 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"13\" />\n    </message>\n    <message id=\"13\">\n        <dateCreated>2018-11-03 16:06:18.758 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"14\" />\n    </message>\n    <message id=\"14\">\n        <dateCreated>2018-11-03 16:06:18.917 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"15\" />\n    </message>\n    <message id=\"15\">\n        <dateCreated>2018-11-03 16:06:19.74 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"16\" />\n    </message>\n    <message id=\"16\">\n        <dateCreated>2018-11-03 16:06:19.230 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"17\" />\n    </message>\n    <message id=\"17\">\n        <dateCreated>2018-11-03 16:06:19.449 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"18\" />\n    </message>\n    <message id=\"18\">\n        <dateCreated>2018-11-03 16:06:19.667 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"19\" />\n    </message>\n    <message id=\"19\">\n        <dateCreated>2018-11-03 16:06:19.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"20\" />\n    </message>\n    <message id=\"20\">\n        <dateCreated>2018-11-03 16:06:20.78 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"21\" />\n    </message>\n    <message id=\"22\">\n        <dateCreated>2018-11-03 16:06:21.14 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"23\" />\n    </message>\n    <message id=\"23\">\n        <dateCreated>2018-11-03 16:06:21.528 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"24\" />\n    </message>\n    <message id=\"24\">\n        <dateCreated>2018-11-03 16:06:22.43 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"25\" />\n    </message>\n    <message id=\"25\">\n        <dateCreated>2018-11-03 16:06:22.620 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"26\" />\n    </message>\n    <message id=\"26\">\n        <dateCreated>2018-11-03 16:06:23.120 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"27\" />\n    </message>\n    <message id=\"27\">\n        <dateCreated>2018-11-03 16:06:23.572 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"28\" />\n    </message>\n    <message id=\"28\">\n        <dateCreated>2018-11-03 16:06:23.900 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"29\" />\n    </message>\n    <message id=\"29\">\n        <dateCreated>2018-11-03 16:06:24.243 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"30\" />\n    </message>\n    <message id=\"30\">\n        <dateCreated>2018-11-03 16:06:24.524 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"31\" />\n    </message>\n    <message id=\"31\">\n        <dateCreated>2018-11-03 16:06:24.836 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"32\" />\n    </message>\n    <message id=\"32\">\n        <dateCreated>2018-11-03 16:06:25.101 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"33\" />\n    </message>\n    <message id=\"33\">\n        <dateCreated>2018-11-03 16:06:25.366 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"34\" />\n    </message>\n    <message id=\"34\">\n        <dateCreated>2018-11-03 16:06:25.600 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"35\" />\n    </message>\n    <message id=\"35\">\n        <dateCreated>2018-11-03 16:06:25.834 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"36\" />\n    </message>\n    <message id=\"36\">\n        <dateCreated>2018-11-03 16:06:26.52 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"37\" />\n    </message>\n    <message id=\"37\">\n        <dateCreated>2018-11-03 16:06:26.271 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"38\" />\n    </message>\n    <message id=\"38\">\n        <dateCreated>2018-11-03 16:06:26.489 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"39\" />\n    </message>\n    <message id=\"39\">\n        <dateCreated>2018-11-03 16:06:26.708 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"40\" />\n    </message>\n    <message id=\"40\">\n        <dateCreated>2018-11-03 16:06:26.910 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"41\" />\n    </message>\n    <message id=\"41\">\n        <dateCreated>2018-11-03 16:06:27.113 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"42\" />\n    </message>\n    <message id=\"42\">\n        <dateCreated>2018-11-03 16:06:27.285 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"43\" />\n    </message>\n    <message id=\"43\">\n        <dateCreated>2018-11-03 16:06:27.472 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"44\" />\n    </message>\n    <message id=\"44\">\n        <dateCreated>2018-11-03 16:06:27.644 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"45\" />\n    </message>\n    <message id=\"45\">\n        <dateCreated>2018-11-03 16:06:27.831 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"46\" />\n    </message>\n    <message id=\"46\">\n        <dateCreated>2018-11-03 16:06:28.24 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"47\" />\n    </message>\n    <message id=\"47\">\n        <dateCreated>2018-11-03 16:06:28.196 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"48\" />\n    </message>\n    <message id=\"48\">\n        <dateCreated>2018-11-03 16:06:28.367 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"49\" />\n    </message>\n    <message id=\"49\">\n        <dateCreated>2018-11-03 16:06:28.547 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"50\" />\n    </message>\n    <message id=\"50\">\n        <dateCreated>2018-11-03 16:06:28.742 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"51\" />\n    </message>\n    <message id=\"51\">\n        <dateCreated>2018-11-03 17:52:21.654 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"52\">\n        <dateCreated>2018-11-03 17:52:33.734 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"53\">\n        <dateCreated>2018-11-03 17:53:22.359 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n</list>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "8dda2908-e151-4f4e-840e-48d1b2c4a3d7",
+          "name": "http://localhost:8080/api/messages",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "62b67328-c2b3-44b2-b3f8-b12e8bd901ec",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/messages",
+            "description": "Requete : GET sur messages\nStatus : 200 OK\nDescription : recupere tous les messages"
+          },
+          "response": [
+            {
+              "id": "95104a99-2987-41dc-b6c0-7e083e183522",
+              "name": "http://localhost:8080/api/messages",
+              "originalRequest": {
+                "method": null,
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "http://localhost:8080/api/messages"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 16:58:35 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<list>\n    <message id=\"1\">\n        <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"2\" />\n    </message>\n    <message id=\"2\">\n        <dateCreated>2018-11-03 16:06:16.968 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"3\" />\n    </message>\n    <message id=\"3\">\n        <dateCreated>2018-11-03 16:06:17.124 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"4\" />\n    </message>\n    <message id=\"4\">\n        <dateCreated>2018-11-03 16:06:17.280 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"5\" />\n    </message>\n    <message id=\"5\">\n        <dateCreated>2018-11-03 16:06:17.451 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"6\" />\n    </message>\n    <message id=\"6\">\n        <dateCreated>2018-11-03 16:06:17.623 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"7\" />\n    </message>\n    <message id=\"7\">\n        <dateCreated>2018-11-03 16:06:17.779 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"8\" />\n    </message>\n    <message id=\"8\">\n        <dateCreated>2018-11-03 16:06:17.935 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"9\" />\n    </message>\n    <message id=\"9\">\n        <dateCreated>2018-11-03 16:06:18.75 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"10\" />\n    </message>\n    <message id=\"10\">\n        <dateCreated>2018-11-03 16:06:18.286 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"11\" />\n    </message>\n    <message id=\"11\">\n        <dateCreated>2018-11-03 16:06:18.427 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"12\" />\n    </message>\n    <message id=\"12\">\n        <dateCreated>2018-11-03 16:06:18.601 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"13\" />\n    </message>\n    <message id=\"13\">\n        <dateCreated>2018-11-03 16:06:18.758 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"14\" />\n    </message>\n    <message id=\"14\">\n        <dateCreated>2018-11-03 16:06:18.917 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"15\" />\n    </message>\n    <message id=\"15\">\n        <dateCreated>2018-11-03 16:06:19.74 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"16\" />\n    </message>\n    <message id=\"16\">\n        <dateCreated>2018-11-03 16:06:19.230 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"17\" />\n    </message>\n    <message id=\"17\">\n        <dateCreated>2018-11-03 16:06:19.449 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"18\" />\n    </message>\n    <message id=\"18\">\n        <dateCreated>2018-11-03 16:06:19.667 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"19\" />\n    </message>\n    <message id=\"19\">\n        <dateCreated>2018-11-03 16:06:19.812 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"20\" />\n    </message>\n    <message id=\"20\">\n        <dateCreated>2018-11-03 16:06:20.78 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"21\" />\n    </message>\n    <message id=\"22\">\n        <dateCreated>2018-11-03 16:06:21.14 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"23\" />\n    </message>\n    <message id=\"23\">\n        <dateCreated>2018-11-03 16:06:21.528 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"24\" />\n    </message>\n    <message id=\"24\">\n        <dateCreated>2018-11-03 16:06:22.43 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"25\" />\n    </message>\n    <message id=\"25\">\n        <dateCreated>2018-11-03 16:06:22.620 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"26\" />\n    </message>\n    <message id=\"26\">\n        <dateCreated>2018-11-03 16:06:23.120 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"27\" />\n    </message>\n    <message id=\"27\">\n        <dateCreated>2018-11-03 16:06:23.572 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"28\" />\n    </message>\n    <message id=\"28\">\n        <dateCreated>2018-11-03 16:06:23.900 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"29\" />\n    </message>\n    <message id=\"29\">\n        <dateCreated>2018-11-03 16:06:24.243 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"30\" />\n    </message>\n    <message id=\"30\">\n        <dateCreated>2018-11-03 16:06:24.524 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"31\" />\n    </message>\n    <message id=\"31\">\n        <dateCreated>2018-11-03 16:06:24.836 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"32\" />\n    </message>\n    <message id=\"32\">\n        <dateCreated>2018-11-03 16:06:25.101 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"33\" />\n    </message>\n    <message id=\"33\">\n        <dateCreated>2018-11-03 16:06:25.366 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"34\" />\n    </message>\n    <message id=\"34\">\n        <dateCreated>2018-11-03 16:06:25.600 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"35\" />\n    </message>\n    <message id=\"35\">\n        <dateCreated>2018-11-03 16:06:25.834 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"36\" />\n    </message>\n    <message id=\"36\">\n        <dateCreated>2018-11-03 16:06:26.52 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"37\" />\n    </message>\n    <message id=\"37\">\n        <dateCreated>2018-11-03 16:06:26.271 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"38\" />\n    </message>\n    <message id=\"38\">\n        <dateCreated>2018-11-03 16:06:26.489 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"39\" />\n    </message>\n    <message id=\"39\">\n        <dateCreated>2018-11-03 16:06:26.708 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"40\" />\n    </message>\n    <message id=\"40\">\n        <dateCreated>2018-11-03 16:06:26.910 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"41\" />\n    </message>\n    <message id=\"41\">\n        <dateCreated>2018-11-03 16:06:27.113 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"42\" />\n    </message>\n    <message id=\"42\">\n        <dateCreated>2018-11-03 16:06:27.285 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"43\" />\n    </message>\n    <message id=\"43\">\n        <dateCreated>2018-11-03 16:06:27.472 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"44\" />\n    </message>\n    <message id=\"44\">\n        <dateCreated>2018-11-03 16:06:27.644 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"45\" />\n    </message>\n    <message id=\"45\">\n        <dateCreated>2018-11-03 16:06:27.831 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"46\" />\n    </message>\n    <message id=\"46\">\n        <dateCreated>2018-11-03 16:06:28.24 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"47\" />\n    </message>\n    <message id=\"47\">\n        <dateCreated>2018-11-03 16:06:28.196 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"48\" />\n    </message>\n    <message id=\"48\">\n        <dateCreated>2018-11-03 16:06:28.367 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"49\" />\n    </message>\n    <message id=\"49\">\n        <dateCreated>2018-11-03 16:06:28.547 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"50\" />\n    </message>\n    <message id=\"50\">\n        <dateCreated>2018-11-03 16:06:28.742 CET</dateCreated>\n        <messageContent>lala</messageContent>\n        <author id=\"51\" />\n    </message>\n    <message id=\"51\">\n        <dateCreated>2018-11-03 17:52:21.654 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"52\">\n        <dateCreated>2018-11-03 17:52:33.734 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n    <message id=\"53\">\n        <dateCreated>2018-11-03 17:53:22.359 CET</dateCreated>\n        <messageContent>yoWhatsUp</messageContent>\n        <author id=\"1\" />\n    </message>\n</list>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "8796d3d8-135a-4083-855a-b4b4b29ddf03",
+          "name": "http://localhost:8080/api/message/",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b20060a-1ad7-497f-bf10-34f7290a0fbf",
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                  "});",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : POST sur message\nStatus : 201 Created\nDescription : ajoute un message avec author.id et contenu du message"
+          },
+          "response": [
+            {
+              "id": "df58a7f7-5e96-48de-9ac7-96665e33ed5d",
+              "name": "http://localhost:8080/api/message/",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "author.id",
+                      "value": "1",
+                      "description": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "messageContent",
+                      "value": "yoWhatsUp",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/message/"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 16:53:22 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "_postman_id": "5e61d4b8-8134-411b-9ee5-377e52177c8a",
+          "name": "http://localhost:8080/api/message/",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b20060a-1ad7-497f-bf10-34f7290a0fbf",
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : POST sur message\nStatus : 400 Bad Request\nDescription : il manqe un parametre (author.id) mais on ne veut pas creer de message sans autheur."
+          },
+          "response": [
+            {
+              "id": "b36343e6-761c-43ab-be6a-928b72547627",
+              "name": "http://localhost:8080/api/message/",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "author.id",
+                      "value": "1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "messageContent",
+                      "value": "yoWhatsUp",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/message/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "message",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1",
+                      "equals": true,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 10:50:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "_postman_id": "57dcabbf-d94c-4802-a16e-94c6277c6e46",
+          "name": "http://localhost:8080/api/message/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4c9c4079-8c53-4bc3-aac9-300692b36298",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/21",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "21"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : DELETE sur message\nStatus : 200 OK\nDescription : supprime le message avec l'id 21"
+          },
+          "response": [
+            {
+              "id": "62b38215-94da-46ec-a47e-36478a03a7c5",
+              "name": "http://localhost:8080/api/message/21",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "author.id",
+                      "value": "1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "messageContent",
+                      "value": "yoWhatsUp1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "receiver.id",
+                      "value": "2",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/message/21",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "message",
+                    "21"
+                  ],
+                  "query": [
+                    {
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "equals": true,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 16:56:39 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "message effac\u00e9"
+            }
+          ]
+        },
+        {
+          "_postman_id": "30da2bbe-cc0a-4de9-a7a9-d6b4de6ccab6",
+          "name": "http://localhost:8080/api/message/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "09130525-337f-4c01-88c2-57f18108e390",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/21",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "21"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : DELETE sur message\nStatus : 404 NotFound\nDescription : essaye d'effacer un message non existant"
+          },
+          "response": [
+            {
+              "id": "ed690165-ec15-474c-93e4-45c5c86c20ff",
+              "name": "http://localhost:8080/api/message/999999",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "author.id",
+                      "value": "1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "messageContent",
+                      "value": "yoWhatsUp1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "receiver.id",
+                      "value": "2",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/message/21",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "message",
+                    "21"
+                  ],
+                  "query": [
+                    {
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "equals": true,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 10:12:23 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "message introuvable"
+            }
+          ]
+        },
+        {
+          "_postman_id": "c34b265f-6cd1-4d59-b400-8eb56959c2ad",
+          "name": "http://localhost:8080/api/message/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "231b1f61-1379-4940-9aac-aa93fc2defcd",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/message/21",
+            "description": "Requete : GET sur message\nStatus : 404 Not Found\nDescription : Ne renvoie pas de message car le message n'existe plus"
+          },
+          "response": [
+            {
+              "id": "b9b71510-5811-4bea-8811-5d34585a46e4",
+              "name": "http://localhost:8080/api/message/999999",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "author.id",
+                      "value": "1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "messageContent",
+                      "value": "yoWhatsUp1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "receiver.id",
+                      "value": "2",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/message/21"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 10:11:38 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "_postman_id": "6ea57f72-dffe-476c-bdb4-613012953edb",
+          "name": "http://localhost:8080/api/message/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "",
+                  "key": "messageContent",
+                  "type": "text",
+                  "value": "changemoica"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/21",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "21"
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : PUT sur message\nStatus : 404\nDescription : Le message d\u00e9sign\u00e9 est introuvable (donc pas de mise \u00e0 jour)"
+          },
+          "response": [
+            {
+              "id": "72699558-2179-49de-8858-cd62e58d7be4",
+              "name": "http://localhost:8080/api/message/21",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "",
+                      "key": "messageContent",
+                      "type": "text",
+                      "value": "changemoica"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/message/21",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "message",
+                    "21"
+                  ],
+                  "query": [
+                    {
+                      "equals": true,
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 10:14:27 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "Le message d\u00e9sign\u00e9 est introuvable"
+            }
+          ]
+        },
+        {
+          "_postman_id": "158d76aa-5674-4e68-a86b-a1bc56f3b700",
+          "name": "http://localhost:8080/api/message/1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "messageContent",
+                  "value": "changemoica",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : PUT sur message\nStatus : 200 OK\nDescription : mise \u00e0 jour champs message 1"
+          },
+          "response": [
+            {
+              "id": "e3c90013-340f-4d48-bd1d-47460f9069ac",
+              "name": "http://localhost:8080/api/message/1",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "messageContent",
+                      "value": "changemoica",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/message/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 17:13:46 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "Mise \u00e0 jour effectu\u00e9e pour le message 1"
+            }
+          ]
+        },
+        {
+          "_postman_id": "59d8b9a6-48e8-44d5-946b-13d23a86ed8c",
+          "name": "http://localhost:8080/api/message/1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d2f0160f-4a89-46d0-8f35-5cf69247026b",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Body matches string\", function () {",
+                  "    pm.expect(pm.response.text()).to.include(\"changemoica\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "messageContent",
+                  "value": "changemoica",
+                  "description": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : GET sur message\nStatus : 200 OK\nDescription : observation du changement apres le PUT precedent"
+          },
+          "response": [
+            {
+              "id": "5f476860-9cbe-4cb5-8ae6-e72c846b96ee",
+              "name": "http://localhost:8080/api/message/1",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "messageContent",
+                      "value": "changemoica",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/message/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "message",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "equals": true,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 17:15:43 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message id=\"1\">\n    <dateCreated>2018-11-03 16:06:16.812 CET</dateCreated>\n    <messageContent>changemoica</messageContent>\n    <author id=\"2\" />\n</message>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "9619c465-b0b2-4b16-8b1e-b9687d0a886d",
+          "name": "http://localhost:8080/api/message/",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+                "exec": [
+                  "pm.test(\"Status code is 405\", function () {",
+                  "    pm.response.to.have.status(405);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "",
+                  "key": "messageContent",
+                  "type": "text",
+                  "value": "changemoica"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/message/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "message",
+                ""
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : PATCH sur message\nStatus : 405\nDescription : Methodes non authoris\u00e9es"
+          },
+          "response": [
+            {
+              "id": "63693204-7740-400f-addf-2ec19e577738",
+              "name": "http://localhost:8080/api/message/",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "",
+                      "key": "messageContent",
+                      "type": "text",
+                      "value": "changemoica"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/message/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "message",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "equals": true,
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 18:10:54 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_postman_id": "b4b0d65f-2c08-4515-83e4-8140d1390f3b",
+      "name": "user",
+      "description": "Toutes les requetes pour api/user,api/users",
+      "item": [
+        {
+          "_postman_id": "287efe22-982e-4b2f-bdba-38216ee46d94",
+          "name": "http://localhost:8080/api/user/1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "00cb731e-6d67-4835-a889-b8813d377d45",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/user/1",
+            "description": "Requete : GET sur user\nStatus : 200 OK\nDescription : get user avec id 1"
+          },
+          "response": [
+            {
+              "id": "fe22efbc-e89f-485e-b095-10b7a5d9309a",
+              "name": "http://localhost:8080/api/user/1",
+              "originalRequest": {
+                "method": null,
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "http://localhost:8080/api/user/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 18:44:51 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<user id=\"1\">\n    <dateCreated>2018-11-03 18:30:34.344 CET</dateCreated>\n    <firstName>admin</firstName>\n    <passwordExpired>false</passwordExpired>\n    <lastUpdated>2018-11-03 18:30:34.344 CET</lastUpdated>\n    <accountExpired>false</accountExpired>\n    <mail>admin@mali.com</mail>\n    <dob />\n    <username>admin</username>\n    <accountLocked>false</accountLocked>\n    <tel />\n    <password>$2a$10$3sJJ2wNphhwNG3yCZP8D1.nm9.F3KhLV9.0T9We9YLxyF0QtghcgO</password>\n    <lastName>admin</lastName>\n    <enabled>true</enabled>\n</user>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "abd6ada7-2238-4a3b-91a6-a6d33d6a688c",
+          "name": "http://localhost:8080/api/user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3351e7fb-8cc8-4532-9a8e-3ce5a4ee20fd",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/user",
+            "description": "Requete : GET sur user\nStatus : 200 OK\nDescription : redirection sur /users/ et recupere tous les users"
+          },
+          "response": [
+            {
+              "id": "0b373a6c-227d-47d3-b4a0-7ffa0a7ed0cd",
+              "name": "http://localhost:8080/api/user",
+              "originalRequest": {
+                "method": null,
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "http://localhost:8080/api/user"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 18:51:05 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<list>\n    <user id=\"1\">\n        <dateCreated>2018-11-03 18:30:34.344 CET</dateCreated>\n        <firstName>admin</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.344 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>admin@mali.com</mail>\n        <dob />\n        <username>admin</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$3sJJ2wNphhwNG3yCZP8D1.nm9.F3KhLV9.0T9We9YLxyF0QtghcgO</password>\n        <lastName>admin</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"2\">\n        <dateCreated>2018-11-03 18:30:34.568 CET</dateCreated>\n        <firstName>first-1</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.568 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-1</mail>\n        <dob />\n        <username>username-1</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$ol6GY8GP42d1bN7095xvae77oFQDDXdsCg1.x2FTFjTeiJktgDN9S</password>\n        <lastName>last-1</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"3\">\n        <dateCreated>2018-11-03 18:30:34.739 CET</dateCreated>\n        <firstName>first-2</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.739 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-2</mail>\n        <dob />\n        <username>username-2</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$HHbJnGFPGkUS2PzPKC9hKOZUy2W3Yzk.Qomwva5dpngZL1eA4FUTu</password>\n        <lastName>last-2</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"4\">\n        <dateCreated>2018-11-03 18:30:34.854 CET</dateCreated>\n        <firstName>first-3</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.854 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-3</mail>\n        <dob />\n        <username>username-3</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$EiIaw3TDWr3XyUkSbk4hmejuVKvEbIQl4vN5/tsOaEK/79.j5TgXK</password>\n        <lastName>last-3</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"5\">\n        <dateCreated>2018-11-03 18:30:34.972 CET</dateCreated>\n        <firstName>first-4</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.972 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-4</mail>\n        <dob />\n        <username>username-4</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$om18YTUC2/ixkWjOoOSTPuIewIbQ8cJJ562CZ/Ofpnl/hKfyD8Cd2</password>\n        <lastName>last-4</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"6\">\n        <dateCreated>2018-11-03 18:30:35.85 CET</dateCreated>\n        <firstName>first-5</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.85 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-5</mail>\n        <dob />\n        <username>username-5</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$9rdYAXXoQCSUhl5TXe4hGOxBdcui5UXVsc/pnnIcvapCwtntuR2OK</password>\n        <lastName>last-5</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"7\">\n        <dateCreated>2018-11-03 18:30:35.200 CET</dateCreated>\n        <firstName>first-6</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.200 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-6</mail>\n        <dob />\n        <username>username-6</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$8bpyHFutKEcnobSGk4HhxOYLxcoESHT9DKVpydn5xafofIG.9ilIe</password>\n        <lastName>last-6</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"8\">\n        <dateCreated>2018-11-03 18:30:35.315 CET</dateCreated>\n        <firstName>first-7</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.315 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-7</mail>\n        <dob />\n        <username>username-7</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$XKUmRMA6YBMVIeOtAZWhhuaH7HOBHjGPUEqrBY2iOda02w98qVLuu</password>\n        <lastName>last-7</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"9\">\n        <dateCreated>2018-11-03 18:30:35.430 CET</dateCreated>\n        <firstName>first-8</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.430 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-8</mail>\n        <dob />\n        <username>username-8</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$kbiey7c2qtl4X.eeUY6k8uSobSaIsDFHyGAXYHt8SywqU0rnXI5x6</password>\n        <lastName>last-8</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"10\">\n        <dateCreated>2018-11-03 18:30:35.539 CET</dateCreated>\n        <firstName>first-9</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.539 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-9</mail>\n        <dob />\n        <username>username-9</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$h7J/xcnEu6fEN6ILpRpIEuEeF9Dgzr.sY83PQU8IeBiKlblzEWJAS</password>\n        <lastName>last-9</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"11\">\n        <dateCreated>2018-11-03 18:30:35.654 CET</dateCreated>\n        <firstName>first-10</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.654 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-10</mail>\n        <dob />\n        <username>username-10</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$LVQzokerR3LBmTkFHSMKnOOy2wFBaRfsJQ062BZ8OXRPLs5yaG.96</password>\n        <lastName>last-10</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"12\">\n        <dateCreated>2018-11-03 18:30:35.769 CET</dateCreated>\n        <firstName>first-11</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.769 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-11</mail>\n        <dob />\n        <username>username-11</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$5HWG5oRCDYALnGRj4zK13.zgloB2tS6G6ft9FNVekGpwA7893D6DW</password>\n        <lastName>last-11</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"13\">\n        <dateCreated>2018-11-03 18:30:35.884 CET</dateCreated>\n        <firstName>first-12</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.884 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-12</mail>\n        <dob />\n        <username>username-12</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$MCU.kcsnTlkS5HZr1VkICukvrITBp.HDyx5m3lqbwEgl2U3dvtPKC</password>\n        <lastName>last-12</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"14\">\n        <dateCreated>2018-11-03 18:30:35.999 CET</dateCreated>\n        <firstName>first-13</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.999 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-13</mail>\n        <dob />\n        <username>username-13</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$ulOvasZSVjCp93qFh1QgKOsHwti2PycrkccKqCXHOsYZpQzhNEwZu</password>\n        <lastName>last-13</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"15\">\n        <dateCreated>2018-11-03 18:30:36.110 CET</dateCreated>\n        <firstName>first-14</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.110 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-14</mail>\n        <dob />\n        <username>username-14</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$cmpsbHAS03OHkOSAPKRfOOiIDqDzzZVRCNccBV9ZIuHu6l9XAm2KG</password>\n        <lastName>last-14</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"16\">\n        <dateCreated>2018-11-03 18:30:36.230 CET</dateCreated>\n        <firstName>first-15</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.230 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-15</mail>\n        <dob />\n        <username>username-15</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$/iww6jKO8W.nc/Zk02INAOqzrT4hTZQdBBxRuQ35zX2WQ3r.PCzR2</password>\n        <lastName>last-15</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"17\">\n        <dateCreated>2018-11-03 18:30:36.350 CET</dateCreated>\n        <firstName>first-16</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.350 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-16</mail>\n        <dob />\n        <username>username-16</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$uuiuGqTpsuLUoPEZggOQVe4q14vfvi.h31.rw8lqKEJwDRMZ4Ihu2</password>\n        <lastName>last-16</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"18\">\n        <dateCreated>2018-11-03 18:30:36.465 CET</dateCreated>\n        <firstName>first-17</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.465 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-17</mail>\n        <dob />\n        <username>username-17</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$wqor.gLtVXfql0EnYRjCguSbg5l9R0JlYSlj3MfGbFyfI7qT9XmYW</password>\n        <lastName>last-17</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"19\">\n        <dateCreated>2018-11-03 18:30:36.568 CET</dateCreated>\n        <firstName>first-18</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.568 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-18</mail>\n        <dob />\n        <username>username-18</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$mA5b2WvYdWFIvQ71spvKMuCj4aS8kXUo/P7qpnGqGLUKGDZ8UPpCS</password>\n        <lastName>last-18</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"20\">\n        <dateCreated>2018-11-03 18:30:36.689 CET</dateCreated>\n        <firstName>first-19</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.689 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-19</mail>\n        <dob />\n        <username>username-19</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$m15tOme.t.iUrGAfOhb2H.XD9C05kIX9kFbjD56QxZ.Q483wNWCjG</password>\n        <lastName>last-19</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"21\">\n        <dateCreated>2018-11-03 18:30:36.802 CET</dateCreated>\n        <firstName>first-20</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.802 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-20</mail>\n        <dob />\n        <username>username-20</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$4YEN77NGKQm00Im4F9uoau0XU76di9bv6Z2kmZEP99eoysqw9GR7q</password>\n        <lastName>last-20</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"22\">\n        <dateCreated>2018-11-03 18:30:36.914 CET</dateCreated>\n        <firstName>first-21</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.914 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-21</mail>\n        <dob />\n        <username>username-21</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$p6QBIXv9aCZNr/CfeIgWveA3vHTyOTwSvddUaZ0wqHnVCUe2.k7cO</password>\n        <lastName>last-21</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"23\">\n        <dateCreated>2018-11-03 18:30:37.15 CET</dateCreated>\n        <firstName>first-22</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.15 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-22</mail>\n        <dob />\n        <username>username-22</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$Mp1WkGyjVxuPoIMbugxcmucyHlOCIIdYrb8AWIVUOBCR7mE3uHH.2</password>\n        <lastName>last-22</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"24\">\n        <dateCreated>2018-11-03 18:30:37.138 CET</dateCreated>\n        <firstName>first-23</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.138 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-23</mail>\n        <dob />\n        <username>username-23</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$o7FjOf62/yCPgzGRqLGQfO2ghymjQfl638RlVpFXOd9hnXJAdKNUm</password>\n        <lastName>last-23</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"25\">\n        <dateCreated>2018-11-03 18:30:37.250 CET</dateCreated>\n        <firstName>first-24</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.250 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-24</mail>\n        <dob />\n        <username>username-24</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$eVvlGXFRZveQ1WAZPWNcjeLPF5sHxJD0I4ixY8pbzevO75loPUrpG</password>\n        <lastName>last-24</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"26\">\n        <dateCreated>2018-11-03 18:30:37.360 CET</dateCreated>\n        <firstName>first-25</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.360 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-25</mail>\n        <dob />\n        <username>username-25</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$wtkCN.zhay9f6fbrnB2WdeMdYOwWKmZbTGd7kd0ybrGyjuBCSnxjK</password>\n        <lastName>last-25</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"27\">\n        <dateCreated>2018-11-03 18:30:37.473 CET</dateCreated>\n        <firstName>first-26</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.473 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-26</mail>\n        <dob />\n        <username>username-26</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$/N0DtswW9vDXqj.xXc3okO2zJ7IIWT9JW/G6lij/nhq8tYl4CRk5W</password>\n        <lastName>last-26</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"28\">\n        <dateCreated>2018-11-03 18:30:37.578 CET</dateCreated>\n        <firstName>first-27</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.578 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-27</mail>\n        <dob />\n        <username>username-27</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$jP.rQCor1u9uZecW5K7yY.0CbIdGc/qJyDbguYaUZeZTUKQaUVtNi</password>\n        <lastName>last-27</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"29\">\n        <dateCreated>2018-11-03 18:30:37.692 CET</dateCreated>\n        <firstName>first-28</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.692 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-28</mail>\n        <dob />\n        <username>username-28</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$tC.hStS4Q7LSpFNd2ft2g.DSmPAaL.TrlWm9ITjN.V2tOuS86rtSC</password>\n        <lastName>last-28</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"30\">\n        <dateCreated>2018-11-03 18:30:37.804 CET</dateCreated>\n        <firstName>first-29</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.804 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-29</mail>\n        <dob />\n        <username>username-29</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$0Evjt.muQu36vWOdc6VlPe2ZwX6qBih6k.DIobE2v79hj5vXGVVZm</password>\n        <lastName>last-29</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"31\">\n        <dateCreated>2018-11-03 18:30:37.914 CET</dateCreated>\n        <firstName>first-30</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.914 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-30</mail>\n        <dob />\n        <username>username-30</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$AQ4BL.bp7gGrR0SFiM9q.eo3N5nGpYhW4gqFMnQurIF.3qmXuJjTK</password>\n        <lastName>last-30</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"32\">\n        <dateCreated>2018-11-03 18:30:38.28 CET</dateCreated>\n        <firstName>first-31</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.28 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-31</mail>\n        <dob />\n        <username>username-31</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$yfhHI04mzRhZEGZ1hl5MOeboyNNMQhE2FxARXT6ETLMkFN0nm0ch6</password>\n        <lastName>last-31</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"33\">\n        <dateCreated>2018-11-03 18:30:38.147 CET</dateCreated>\n        <firstName>first-32</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.147 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-32</mail>\n        <dob />\n        <username>username-32</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$UBDHLg28Of0F8GdD7PXLSecUcL9obyduCCQqCjJ8f4DABoc117KJK</password>\n        <lastName>last-32</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"34\">\n        <dateCreated>2018-11-03 18:30:38.257 CET</dateCreated>\n        <firstName>first-33</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.257 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-33</mail>\n        <dob />\n        <username>username-33</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$6nGd0NT5kjijeTtkn/PdgulxlDRrrWpQGfAQ1G9mM0eTOPYKn445W</password>\n        <lastName>last-33</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"35\">\n        <dateCreated>2018-11-03 18:30:38.367 CET</dateCreated>\n        <firstName>first-34</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.367 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-34</mail>\n        <dob />\n        <username>username-34</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$./dH1ZPdVouICOgHC0/NAOMYWHtHno6v129/bgIni9XpVCoNdM3eC</password>\n        <lastName>last-34</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"36\">\n        <dateCreated>2018-11-03 18:30:38.477 CET</dateCreated>\n        <firstName>first-35</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.477 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-35</mail>\n        <dob />\n        <username>username-35</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$XZfZ2cbhF4lwIzJE/dk3XOcgM6RrnuvbHiuufY.fzc6raKHxOaRYS</password>\n        <lastName>last-35</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"37\">\n        <dateCreated>2018-11-03 18:30:38.580 CET</dateCreated>\n        <firstName>first-36</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.580 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-36</mail>\n        <dob />\n        <username>username-36</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$QBwq8gKy3j7dqYcYcFpfwOSdT.mEoACRzPhyu6ZkD8K93Xvi82GYG</password>\n        <lastName>last-36</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"38\">\n        <dateCreated>2018-11-03 18:30:38.693 CET</dateCreated>\n        <firstName>first-37</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.693 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-37</mail>\n        <dob />\n        <username>username-37</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$vBVLiwLtG4csC0MMnZnofe49Jpcg4nhiLe3ptV/PyXqyENPGKBz1S</password>\n        <lastName>last-37</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"39\">\n        <dateCreated>2018-11-03 18:30:38.803 CET</dateCreated>\n        <firstName>first-38</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.803 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-38</mail>\n        <dob />\n        <username>username-38</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$rsmUNX8h2qmou5Ui691EveaZ3ikdKvr7O4/PTlyqAMTBaz4jgDQaC</password>\n        <lastName>last-38</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"40\">\n        <dateCreated>2018-11-03 18:30:38.913 CET</dateCreated>\n        <firstName>first-39</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.913 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-39</mail>\n        <dob />\n        <username>username-39</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$DEqHc5vOmsaHJsQTLQ0yG.05y1Gj4ltJ.fpGLDjFQLjwhjWtHvGy.</password>\n        <lastName>last-39</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"41\">\n        <dateCreated>2018-11-03 18:30:39.12 CET</dateCreated>\n        <firstName>first-40</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.12 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-40</mail>\n        <dob />\n        <username>username-40</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$yiw0WRMZ3DjkV.YyqpS3a.uJYdEN8aJbuvWX4scH6AAQCG2J3Kx56</password>\n        <lastName>last-40</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"42\">\n        <dateCreated>2018-11-03 18:30:39.134 CET</dateCreated>\n        <firstName>first-41</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.134 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-41</mail>\n        <dob />\n        <username>username-41</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$RA.ugG.OuccvGwwNegriC.SN.BwcCNlWeeV7PI5thknQB9BbzhIwm</password>\n        <lastName>last-41</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"43\">\n        <dateCreated>2018-11-03 18:30:39.244 CET</dateCreated>\n        <firstName>first-42</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.244 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-42</mail>\n        <dob />\n        <username>username-42</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$w8MC8i5AAiiqY8sYS2fKhuI2eDpET7MsUcDzGkxZXD/qyl6UBJ7Q6</password>\n        <lastName>last-42</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"44\">\n        <dateCreated>2018-11-03 18:30:39.356 CET</dateCreated>\n        <firstName>first-43</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.356 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-43</mail>\n        <dob />\n        <username>username-43</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$Km9DkmCT62LHlQck9jevYeEUS.910eXNZhXZJopwvMpNxGOQuW6vm</password>\n        <lastName>last-43</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"45\">\n        <dateCreated>2018-11-03 18:30:39.464 CET</dateCreated>\n        <firstName>first-44</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.464 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-44</mail>\n        <dob />\n        <username>username-44</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$rvj2IMk6KnMvgV2Clqyci.gdclm1hx2LxcQ2vHxjQpA4wmC4q0y1.</password>\n        <lastName>last-44</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"46\">\n        <dateCreated>2018-11-03 18:30:39.561 CET</dateCreated>\n        <firstName>first-45</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.561 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-45</mail>\n        <dob />\n        <username>username-45</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$H2SBhCavQj4V4pP.9j3mXOW4YQrr67NNAnVxc4AbQs7TFQi/E383m</password>\n        <lastName>last-45</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"47\">\n        <dateCreated>2018-11-03 18:30:39.682 CET</dateCreated>\n        <firstName>first-46</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.682 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-46</mail>\n        <dob />\n        <username>username-46</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$trcXZYqOE4PD9zLl7wsoveALP8V0PCinI1ah9F0nNiUwMOip.cRTu</password>\n        <lastName>last-46</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"48\">\n        <dateCreated>2018-11-03 18:30:39.792 CET</dateCreated>\n        <firstName>first-47</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.792 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-47</mail>\n        <dob />\n        <username>username-47</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$bdQrBWkwDHYK/oPPFD.8AO7jF2sEQ5vLHyjmTotJkXUiPzKu6fFFm</password>\n        <lastName>last-47</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"49\">\n        <dateCreated>2018-11-03 18:30:39.902 CET</dateCreated>\n        <firstName>first-48</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.902 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-48</mail>\n        <dob />\n        <username>username-48</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$sAzLd0QsGgE5O1NLgVuMpOkyeLaZa5eoos7HuAsOzcQDlawtdCOhe</password>\n        <lastName>last-48</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"50\">\n        <dateCreated>2018-11-03 18:30:40.13 CET</dateCreated>\n        <firstName>first-49</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:40.13 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-49</mail>\n        <dob />\n        <username>username-49</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$hL2qhZR5ME0YBC3XndusDuzy4VgU826R7qj32LShBplj8JwPmM1mK</password>\n        <lastName>last-49</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"51\">\n        <dateCreated>2018-11-03 18:30:40.122 CET</dateCreated>\n        <firstName>first-50</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:40.122 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-50</mail>\n        <dob />\n        <username>username-50</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$WhjwBLh4MxO2uROKh32XhOtD03/WOGCa.2czlq9trIfQCgUf3/sWa</password>\n        <lastName>last-50</lastName>\n        <enabled>true</enabled>\n    </user>\n</list>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "053e4614-dfc1-446c-9213-72dda12b647b",
+          "name": "http://localhost:8080/api/users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "62b67328-c2b3-44b2-b3f8-b12e8bd901ec",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": null,
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "http://localhost:8080/api/users",
+            "description": "Requete : GET sur users\nStatus : 200 OK\nDescription : recupere tous les users"
+          },
+          "response": [
+            {
+              "id": "9159dd64-7d74-493c-a9a4-8d61883b1b3b",
+              "name": "http://localhost:8080/api/users",
+              "originalRequest": {
+                "method": null,
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "http://localhost:8080/api/users"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 18:52:04 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<list>\n    <user id=\"1\">\n        <dateCreated>2018-11-03 18:30:34.344 CET</dateCreated>\n        <firstName>admin</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.344 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>admin@mali.com</mail>\n        <dob />\n        <username>admin</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$3sJJ2wNphhwNG3yCZP8D1.nm9.F3KhLV9.0T9We9YLxyF0QtghcgO</password>\n        <lastName>admin</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"2\">\n        <dateCreated>2018-11-03 18:30:34.568 CET</dateCreated>\n        <firstName>first-1</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.568 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-1</mail>\n        <dob />\n        <username>username-1</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$ol6GY8GP42d1bN7095xvae77oFQDDXdsCg1.x2FTFjTeiJktgDN9S</password>\n        <lastName>last-1</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"3\">\n        <dateCreated>2018-11-03 18:30:34.739 CET</dateCreated>\n        <firstName>first-2</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.739 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-2</mail>\n        <dob />\n        <username>username-2</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$HHbJnGFPGkUS2PzPKC9hKOZUy2W3Yzk.Qomwva5dpngZL1eA4FUTu</password>\n        <lastName>last-2</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"4\">\n        <dateCreated>2018-11-03 18:30:34.854 CET</dateCreated>\n        <firstName>first-3</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.854 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-3</mail>\n        <dob />\n        <username>username-3</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$EiIaw3TDWr3XyUkSbk4hmejuVKvEbIQl4vN5/tsOaEK/79.j5TgXK</password>\n        <lastName>last-3</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"5\">\n        <dateCreated>2018-11-03 18:30:34.972 CET</dateCreated>\n        <firstName>first-4</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:34.972 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-4</mail>\n        <dob />\n        <username>username-4</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$om18YTUC2/ixkWjOoOSTPuIewIbQ8cJJ562CZ/Ofpnl/hKfyD8Cd2</password>\n        <lastName>last-4</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"6\">\n        <dateCreated>2018-11-03 18:30:35.85 CET</dateCreated>\n        <firstName>first-5</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.85 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-5</mail>\n        <dob />\n        <username>username-5</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$9rdYAXXoQCSUhl5TXe4hGOxBdcui5UXVsc/pnnIcvapCwtntuR2OK</password>\n        <lastName>last-5</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"7\">\n        <dateCreated>2018-11-03 18:30:35.200 CET</dateCreated>\n        <firstName>first-6</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.200 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-6</mail>\n        <dob />\n        <username>username-6</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$8bpyHFutKEcnobSGk4HhxOYLxcoESHT9DKVpydn5xafofIG.9ilIe</password>\n        <lastName>last-6</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"8\">\n        <dateCreated>2018-11-03 18:30:35.315 CET</dateCreated>\n        <firstName>first-7</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.315 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-7</mail>\n        <dob />\n        <username>username-7</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$XKUmRMA6YBMVIeOtAZWhhuaH7HOBHjGPUEqrBY2iOda02w98qVLuu</password>\n        <lastName>last-7</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"9\">\n        <dateCreated>2018-11-03 18:30:35.430 CET</dateCreated>\n        <firstName>first-8</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.430 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-8</mail>\n        <dob />\n        <username>username-8</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$kbiey7c2qtl4X.eeUY6k8uSobSaIsDFHyGAXYHt8SywqU0rnXI5x6</password>\n        <lastName>last-8</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"10\">\n        <dateCreated>2018-11-03 18:30:35.539 CET</dateCreated>\n        <firstName>first-9</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.539 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-9</mail>\n        <dob />\n        <username>username-9</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$h7J/xcnEu6fEN6ILpRpIEuEeF9Dgzr.sY83PQU8IeBiKlblzEWJAS</password>\n        <lastName>last-9</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"11\">\n        <dateCreated>2018-11-03 18:30:35.654 CET</dateCreated>\n        <firstName>first-10</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.654 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-10</mail>\n        <dob />\n        <username>username-10</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$LVQzokerR3LBmTkFHSMKnOOy2wFBaRfsJQ062BZ8OXRPLs5yaG.96</password>\n        <lastName>last-10</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"12\">\n        <dateCreated>2018-11-03 18:30:35.769 CET</dateCreated>\n        <firstName>first-11</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.769 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-11</mail>\n        <dob />\n        <username>username-11</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$5HWG5oRCDYALnGRj4zK13.zgloB2tS6G6ft9FNVekGpwA7893D6DW</password>\n        <lastName>last-11</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"13\">\n        <dateCreated>2018-11-03 18:30:35.884 CET</dateCreated>\n        <firstName>first-12</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.884 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-12</mail>\n        <dob />\n        <username>username-12</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$MCU.kcsnTlkS5HZr1VkICukvrITBp.HDyx5m3lqbwEgl2U3dvtPKC</password>\n        <lastName>last-12</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"14\">\n        <dateCreated>2018-11-03 18:30:35.999 CET</dateCreated>\n        <firstName>first-13</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:35.999 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-13</mail>\n        <dob />\n        <username>username-13</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$ulOvasZSVjCp93qFh1QgKOsHwti2PycrkccKqCXHOsYZpQzhNEwZu</password>\n        <lastName>last-13</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"15\">\n        <dateCreated>2018-11-03 18:30:36.110 CET</dateCreated>\n        <firstName>first-14</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.110 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-14</mail>\n        <dob />\n        <username>username-14</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$cmpsbHAS03OHkOSAPKRfOOiIDqDzzZVRCNccBV9ZIuHu6l9XAm2KG</password>\n        <lastName>last-14</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"16\">\n        <dateCreated>2018-11-03 18:30:36.230 CET</dateCreated>\n        <firstName>first-15</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.230 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-15</mail>\n        <dob />\n        <username>username-15</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$/iww6jKO8W.nc/Zk02INAOqzrT4hTZQdBBxRuQ35zX2WQ3r.PCzR2</password>\n        <lastName>last-15</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"17\">\n        <dateCreated>2018-11-03 18:30:36.350 CET</dateCreated>\n        <firstName>first-16</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.350 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-16</mail>\n        <dob />\n        <username>username-16</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$uuiuGqTpsuLUoPEZggOQVe4q14vfvi.h31.rw8lqKEJwDRMZ4Ihu2</password>\n        <lastName>last-16</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"18\">\n        <dateCreated>2018-11-03 18:30:36.465 CET</dateCreated>\n        <firstName>first-17</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.465 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-17</mail>\n        <dob />\n        <username>username-17</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$wqor.gLtVXfql0EnYRjCguSbg5l9R0JlYSlj3MfGbFyfI7qT9XmYW</password>\n        <lastName>last-17</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"19\">\n        <dateCreated>2018-11-03 18:30:36.568 CET</dateCreated>\n        <firstName>first-18</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.568 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-18</mail>\n        <dob />\n        <username>username-18</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$mA5b2WvYdWFIvQ71spvKMuCj4aS8kXUo/P7qpnGqGLUKGDZ8UPpCS</password>\n        <lastName>last-18</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"20\">\n        <dateCreated>2018-11-03 18:30:36.689 CET</dateCreated>\n        <firstName>first-19</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.689 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-19</mail>\n        <dob />\n        <username>username-19</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$m15tOme.t.iUrGAfOhb2H.XD9C05kIX9kFbjD56QxZ.Q483wNWCjG</password>\n        <lastName>last-19</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"21\">\n        <dateCreated>2018-11-03 18:30:36.802 CET</dateCreated>\n        <firstName>first-20</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.802 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-20</mail>\n        <dob />\n        <username>username-20</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$4YEN77NGKQm00Im4F9uoau0XU76di9bv6Z2kmZEP99eoysqw9GR7q</password>\n        <lastName>last-20</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"22\">\n        <dateCreated>2018-11-03 18:30:36.914 CET</dateCreated>\n        <firstName>first-21</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:36.914 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-21</mail>\n        <dob />\n        <username>username-21</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$p6QBIXv9aCZNr/CfeIgWveA3vHTyOTwSvddUaZ0wqHnVCUe2.k7cO</password>\n        <lastName>last-21</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"23\">\n        <dateCreated>2018-11-03 18:30:37.15 CET</dateCreated>\n        <firstName>first-22</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.15 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-22</mail>\n        <dob />\n        <username>username-22</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$Mp1WkGyjVxuPoIMbugxcmucyHlOCIIdYrb8AWIVUOBCR7mE3uHH.2</password>\n        <lastName>last-22</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"24\">\n        <dateCreated>2018-11-03 18:30:37.138 CET</dateCreated>\n        <firstName>first-23</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.138 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-23</mail>\n        <dob />\n        <username>username-23</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$o7FjOf62/yCPgzGRqLGQfO2ghymjQfl638RlVpFXOd9hnXJAdKNUm</password>\n        <lastName>last-23</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"25\">\n        <dateCreated>2018-11-03 18:30:37.250 CET</dateCreated>\n        <firstName>first-24</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.250 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-24</mail>\n        <dob />\n        <username>username-24</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$eVvlGXFRZveQ1WAZPWNcjeLPF5sHxJD0I4ixY8pbzevO75loPUrpG</password>\n        <lastName>last-24</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"26\">\n        <dateCreated>2018-11-03 18:30:37.360 CET</dateCreated>\n        <firstName>first-25</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.360 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-25</mail>\n        <dob />\n        <username>username-25</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$wtkCN.zhay9f6fbrnB2WdeMdYOwWKmZbTGd7kd0ybrGyjuBCSnxjK</password>\n        <lastName>last-25</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"27\">\n        <dateCreated>2018-11-03 18:30:37.473 CET</dateCreated>\n        <firstName>first-26</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.473 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-26</mail>\n        <dob />\n        <username>username-26</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$/N0DtswW9vDXqj.xXc3okO2zJ7IIWT9JW/G6lij/nhq8tYl4CRk5W</password>\n        <lastName>last-26</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"28\">\n        <dateCreated>2018-11-03 18:30:37.578 CET</dateCreated>\n        <firstName>first-27</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.578 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-27</mail>\n        <dob />\n        <username>username-27</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$jP.rQCor1u9uZecW5K7yY.0CbIdGc/qJyDbguYaUZeZTUKQaUVtNi</password>\n        <lastName>last-27</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"29\">\n        <dateCreated>2018-11-03 18:30:37.692 CET</dateCreated>\n        <firstName>first-28</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.692 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-28</mail>\n        <dob />\n        <username>username-28</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$tC.hStS4Q7LSpFNd2ft2g.DSmPAaL.TrlWm9ITjN.V2tOuS86rtSC</password>\n        <lastName>last-28</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"30\">\n        <dateCreated>2018-11-03 18:30:37.804 CET</dateCreated>\n        <firstName>first-29</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.804 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-29</mail>\n        <dob />\n        <username>username-29</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$0Evjt.muQu36vWOdc6VlPe2ZwX6qBih6k.DIobE2v79hj5vXGVVZm</password>\n        <lastName>last-29</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"31\">\n        <dateCreated>2018-11-03 18:30:37.914 CET</dateCreated>\n        <firstName>first-30</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:37.914 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-30</mail>\n        <dob />\n        <username>username-30</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$AQ4BL.bp7gGrR0SFiM9q.eo3N5nGpYhW4gqFMnQurIF.3qmXuJjTK</password>\n        <lastName>last-30</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"32\">\n        <dateCreated>2018-11-03 18:30:38.28 CET</dateCreated>\n        <firstName>first-31</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.28 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-31</mail>\n        <dob />\n        <username>username-31</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$yfhHI04mzRhZEGZ1hl5MOeboyNNMQhE2FxARXT6ETLMkFN0nm0ch6</password>\n        <lastName>last-31</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"33\">\n        <dateCreated>2018-11-03 18:30:38.147 CET</dateCreated>\n        <firstName>first-32</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.147 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-32</mail>\n        <dob />\n        <username>username-32</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$UBDHLg28Of0F8GdD7PXLSecUcL9obyduCCQqCjJ8f4DABoc117KJK</password>\n        <lastName>last-32</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"34\">\n        <dateCreated>2018-11-03 18:30:38.257 CET</dateCreated>\n        <firstName>first-33</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.257 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-33</mail>\n        <dob />\n        <username>username-33</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$6nGd0NT5kjijeTtkn/PdgulxlDRrrWpQGfAQ1G9mM0eTOPYKn445W</password>\n        <lastName>last-33</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"35\">\n        <dateCreated>2018-11-03 18:30:38.367 CET</dateCreated>\n        <firstName>first-34</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.367 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-34</mail>\n        <dob />\n        <username>username-34</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$./dH1ZPdVouICOgHC0/NAOMYWHtHno6v129/bgIni9XpVCoNdM3eC</password>\n        <lastName>last-34</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"36\">\n        <dateCreated>2018-11-03 18:30:38.477 CET</dateCreated>\n        <firstName>first-35</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.477 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-35</mail>\n        <dob />\n        <username>username-35</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$XZfZ2cbhF4lwIzJE/dk3XOcgM6RrnuvbHiuufY.fzc6raKHxOaRYS</password>\n        <lastName>last-35</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"37\">\n        <dateCreated>2018-11-03 18:30:38.580 CET</dateCreated>\n        <firstName>first-36</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.580 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-36</mail>\n        <dob />\n        <username>username-36</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$QBwq8gKy3j7dqYcYcFpfwOSdT.mEoACRzPhyu6ZkD8K93Xvi82GYG</password>\n        <lastName>last-36</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"38\">\n        <dateCreated>2018-11-03 18:30:38.693 CET</dateCreated>\n        <firstName>first-37</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.693 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-37</mail>\n        <dob />\n        <username>username-37</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$vBVLiwLtG4csC0MMnZnofe49Jpcg4nhiLe3ptV/PyXqyENPGKBz1S</password>\n        <lastName>last-37</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"39\">\n        <dateCreated>2018-11-03 18:30:38.803 CET</dateCreated>\n        <firstName>first-38</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.803 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-38</mail>\n        <dob />\n        <username>username-38</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$rsmUNX8h2qmou5Ui691EveaZ3ikdKvr7O4/PTlyqAMTBaz4jgDQaC</password>\n        <lastName>last-38</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"40\">\n        <dateCreated>2018-11-03 18:30:38.913 CET</dateCreated>\n        <firstName>first-39</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:38.913 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-39</mail>\n        <dob />\n        <username>username-39</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$DEqHc5vOmsaHJsQTLQ0yG.05y1Gj4ltJ.fpGLDjFQLjwhjWtHvGy.</password>\n        <lastName>last-39</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"41\">\n        <dateCreated>2018-11-03 18:30:39.12 CET</dateCreated>\n        <firstName>first-40</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.12 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-40</mail>\n        <dob />\n        <username>username-40</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$yiw0WRMZ3DjkV.YyqpS3a.uJYdEN8aJbuvWX4scH6AAQCG2J3Kx56</password>\n        <lastName>last-40</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"42\">\n        <dateCreated>2018-11-03 18:30:39.134 CET</dateCreated>\n        <firstName>first-41</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.134 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-41</mail>\n        <dob />\n        <username>username-41</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$RA.ugG.OuccvGwwNegriC.SN.BwcCNlWeeV7PI5thknQB9BbzhIwm</password>\n        <lastName>last-41</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"43\">\n        <dateCreated>2018-11-03 18:30:39.244 CET</dateCreated>\n        <firstName>first-42</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.244 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-42</mail>\n        <dob />\n        <username>username-42</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$w8MC8i5AAiiqY8sYS2fKhuI2eDpET7MsUcDzGkxZXD/qyl6UBJ7Q6</password>\n        <lastName>last-42</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"44\">\n        <dateCreated>2018-11-03 18:30:39.356 CET</dateCreated>\n        <firstName>first-43</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.356 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-43</mail>\n        <dob />\n        <username>username-43</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$Km9DkmCT62LHlQck9jevYeEUS.910eXNZhXZJopwvMpNxGOQuW6vm</password>\n        <lastName>last-43</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"45\">\n        <dateCreated>2018-11-03 18:30:39.464 CET</dateCreated>\n        <firstName>first-44</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.464 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-44</mail>\n        <dob />\n        <username>username-44</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$rvj2IMk6KnMvgV2Clqyci.gdclm1hx2LxcQ2vHxjQpA4wmC4q0y1.</password>\n        <lastName>last-44</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"46\">\n        <dateCreated>2018-11-03 18:30:39.561 CET</dateCreated>\n        <firstName>first-45</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.561 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-45</mail>\n        <dob />\n        <username>username-45</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$H2SBhCavQj4V4pP.9j3mXOW4YQrr67NNAnVxc4AbQs7TFQi/E383m</password>\n        <lastName>last-45</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"47\">\n        <dateCreated>2018-11-03 18:30:39.682 CET</dateCreated>\n        <firstName>first-46</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.682 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-46</mail>\n        <dob />\n        <username>username-46</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$trcXZYqOE4PD9zLl7wsoveALP8V0PCinI1ah9F0nNiUwMOip.cRTu</password>\n        <lastName>last-46</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"48\">\n        <dateCreated>2018-11-03 18:30:39.792 CET</dateCreated>\n        <firstName>first-47</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.792 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-47</mail>\n        <dob />\n        <username>username-47</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$bdQrBWkwDHYK/oPPFD.8AO7jF2sEQ5vLHyjmTotJkXUiPzKu6fFFm</password>\n        <lastName>last-47</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"49\">\n        <dateCreated>2018-11-03 18:30:39.902 CET</dateCreated>\n        <firstName>first-48</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:39.902 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-48</mail>\n        <dob />\n        <username>username-48</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$sAzLd0QsGgE5O1NLgVuMpOkyeLaZa5eoos7HuAsOzcQDlawtdCOhe</password>\n        <lastName>last-48</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"50\">\n        <dateCreated>2018-11-03 18:30:40.13 CET</dateCreated>\n        <firstName>first-49</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:40.13 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-49</mail>\n        <dob />\n        <username>username-49</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$hL2qhZR5ME0YBC3XndusDuzy4VgU826R7qj32LShBplj8JwPmM1mK</password>\n        <lastName>last-49</lastName>\n        <enabled>true</enabled>\n    </user>\n    <user id=\"51\">\n        <dateCreated>2018-11-03 18:30:40.122 CET</dateCreated>\n        <firstName>first-50</firstName>\n        <passwordExpired>false</passwordExpired>\n        <lastUpdated>2018-11-03 18:30:40.122 CET</lastUpdated>\n        <accountExpired>false</accountExpired>\n        <mail>mail-50</mail>\n        <dob />\n        <username>username-50</username>\n        <accountLocked>false</accountLocked>\n        <tel />\n        <password>$2a$10$WhjwBLh4MxO2uROKh32XhOtD03/WOGCa.2czlq9trIfQCgUf3/sWa</password>\n        <lastName>last-50</lastName>\n        <enabled>true</enabled>\n    </user>\n</list>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "930ad310-8fdd-4aa5-a6d0-0ef65dbc2a30",
+          "name": "http://localhost:8080/api/user/",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b20060a-1ad7-497f-bf10-34f7290a0fbf",
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                  "});",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "CaptainP",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "secret",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "firstName",
+                  "value": "Jean Luc",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Picard",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "mail",
+                  "value": "jl.picard@enterprise.uni",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "dob",
+                  "value": "",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : POST sur user\nStatus : 200 OK\nDescription : ajoute user Jean Luc Picard"
+          },
+          "response": [
+            {
+              "id": "02487ddd-8fd6-4b1a-86fb-331a3a1bdfae",
+              "name": "http://localhost:8080/api/user/",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "username",
+                      "value": "CaptainPicard",
+                      "description": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "secret",
+                      "description": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "Jean Luc",
+                      "description": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "Picard",
+                      "description": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "mail",
+                      "value": "jl.picard@enterprise.uni",
+                      "description": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "dob",
+                      "value": "",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/user/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "user",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1",
+                      "equals": true,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 19:10:46 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "_postman_id": "b7ad2f44-ec8f-466f-9fb1-4873a26ee1c5",
+          "name": "http://localhost:8080/api/user/",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b20060a-1ad7-497f-bf10-34f7290a0fbf",
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": "",
+                  "key": "username",
+                  "type": "text",
+                  "value": "CaptainP"
+                },
+                {
+                  "description": "",
+                  "key": "password",
+                  "type": "text",
+                  "value": "secret"
+                },
+                {
+                  "description": "",
+                  "key": "firstName",
+                  "type": "text",
+                  "value": "Jean Luc"
+                },
+                {
+                  "description": "",
+                  "key": "lastName",
+                  "type": "text",
+                  "value": "Picard"
+                },
+                {
+                  "description": "",
+                  "key": "mail",
+                  "type": "text",
+                  "value": "jl.picard@enterprise.uni"
+                },
+                {
+                  "description": "",
+                  "key": "dob",
+                  "type": "text",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                ""
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "id",
+                  "value": "1",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : POST sur user\nStatus : 400\nDescription : re-ajoute user Jean Luc Picard et ne respecte pas les contraintes d'unicit\u00e9"
+          },
+          "response": [
+            {
+              "id": "0be1e9a3-f312-4110-a3be-e9037f61d1da",
+              "name": "http://localhost:8080/api/user/  -again",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "",
+                      "key": "username",
+                      "type": "text",
+                      "value": "CaptainP"
+                    },
+                    {
+                      "description": "",
+                      "key": "password",
+                      "type": "text",
+                      "value": "secret"
+                    },
+                    {
+                      "description": "",
+                      "key": "firstName",
+                      "type": "text",
+                      "value": "Jean Luc"
+                    },
+                    {
+                      "description": "",
+                      "key": "lastName",
+                      "type": "text",
+                      "value": "Picard"
+                    },
+                    {
+                      "description": "",
+                      "key": "mail",
+                      "type": "text",
+                      "value": "jl.picard@enterprise.uni"
+                    },
+                    {
+                      "description": "",
+                      "key": "dob",
+                      "type": "text",
+                      "value": "",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/user/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "user",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "equals": true,
+                      "key": "id",
+                      "value": "1",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 03 Nov 2018 19:12:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "_postman_id": "dc7f30b9-be99-47ae-82cc-39f771895a9a",
+          "name": "http://localhost:8080/api/user/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4c9c4079-8c53-4bc3-aac9-300692b36298",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/xml",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author.id",
+                  "value": "1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "messageContent",
+                  "value": "yoWhatsUp1",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "receiver.id",
+                  "value": "2",
+                  "description": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/21",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "21"
+              ],
+              "query": [
+                {
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "equals": true,
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : DELETE sur user\nStatus : 200 OK\nDescription : supprime le user avec l'id 21"
+          },
+          "response": [
+            {
+              "id": "e4ee4130-244d-426c-bc88-ad4a1e165024",
+              "name": "http://localhost:8080/api/user/21",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "author.id",
+                      "value": "1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "messageContent",
+                      "value": "yoWhatsUp1",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "receiver.id",
+                      "value": "2",
+                      "description": "",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/user/21",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "user",
+                    "21"
+                  ],
+                  "query": [
+                    {
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "equals": true,
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 11:15:53 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "user effac\u00e9"
+            }
+          ]
+        },
+        {
+          "_postman_id": "7ccda9dd-84e3-4664-be2d-f0483838b0f7",
+          "name": "http://localhost:8080/api/user/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4c9c4079-8c53-4bc3-aac9-300692b36298",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": "",
+                  "key": "author.id",
+                  "type": "text",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "description": "",
+                  "key": "messageContent",
+                  "type": "text",
+                  "value": "yoWhatsUp1",
+                  "disabled": true
+                },
+                {
+                  "description": "",
+                  "key": "receiver.id",
+                  "type": "text",
+                  "value": "2",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/21",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "21"
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : DELETE sur user\nStatus : 200 OK\nDescription : supprime le user avec l'id 21"
+          },
+          "response": [
+            {
+              "id": "2b72dd6c-5576-45db-8a1f-a51c12f1d0ed",
+              "name": "http://localhost:8080/api/user/21",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "",
+                      "key": "author.id",
+                      "type": "text",
+                      "value": "1",
+                      "disabled": true
+                    },
+                    {
+                      "description": "",
+                      "key": "messageContent",
+                      "type": "text",
+                      "value": "yoWhatsUp1",
+                      "disabled": true
+                    },
+                    {
+                      "description": "",
+                      "key": "receiver.id",
+                      "type": "text",
+                      "value": "2",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/user/21",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "user",
+                    "21"
+                  ],
+                  "query": [
+                    {
+                      "equals": true,
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 12:06:54 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "user introuvable"
+            }
+          ]
+        },
+        {
+          "_postman_id": "9d2b1a31-5268-4970-96fe-7a0fc95041d3",
+          "name": "http://localhost:8080/api/user/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "231b1f61-1379-4940-9aac-aa93fc2defcd",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": "",
+                  "key": "author.id",
+                  "type": "text",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "description": "",
+                  "key": "messageContent",
+                  "type": "text",
+                  "value": "yoWhatsUp1",
+                  "disabled": true
+                },
+                {
+                  "description": "",
+                  "key": "receiver.id",
+                  "type": "text",
+                  "value": "2",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/user/21",
+            "description": "Requete : GET sur user\nStatus : 404 Not Found\nDescription : Ne renvoie pas de user car le user n'existe plus"
+          },
+          "response": [
+            {
+              "id": "9711f813-9dbc-4313-9074-8c45c199b45e",
+              "name": "http://localhost:8080/api/user/21",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "",
+                      "key": "author.id",
+                      "type": "text",
+                      "value": "1",
+                      "disabled": true
+                    },
+                    {
+                      "description": "",
+                      "key": "messageContent",
+                      "type": "text",
+                      "value": "yoWhatsUp1",
+                      "disabled": true
+                    },
+                    {
+                      "description": "",
+                      "key": "receiver.id",
+                      "type": "text",
+                      "value": "2",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/user/21"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 12:05:47 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "_postman_id": "477b700c-c775-4365-b170-994da14c7fa4",
+          "name": "http://localhost:8080/api/user/21",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "",
+                  "key": "mail",
+                  "type": "text",
+                  "value": "nechangepascemail@mail.com"
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/user/21",
+            "description": "Requete : PUT sur user\nStatus : 404\nDescription : Le user d\u00e9sign\u00e9 est introuvable (donc pas de mise \u00e0 jour)"
+          },
+          "response": [
+            {
+              "id": "ac2b839f-b9a4-42b2-9da0-308670ea0981",
+              "name": "http://localhost:8080/api/user/21",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "",
+                      "key": "mail",
+                      "type": "text",
+                      "value": "nechangepascemail@mail.com"
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/user/21"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 12:15:09 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "Le user d\u00e9sign\u00e9 est introuvable"
+            }
+          ]
+        },
+        {
+          "_postman_id": "2ef5b770-6722-4903-8744-8a6bffa0852c",
+          "name": "http://localhost:8080/api/user/1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "",
+                  "key": "mail",
+                  "type": "text",
+                  "value": "changemoica@mail.com"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user",
+                "1"
+              ],
+              "query": [
+                {
+                  "equals": true,
+                  "key": "idzerez",
+                  "value": "zezer",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Requete : PUT sur user\nStatus : 200 OK\nDescription : mise \u00e0 jour champs user 1"
+          },
+          "response": [
+            {
+              "id": "065ecc49-bfd0-4c4b-bbef-2576a3f6316e",
+              "name": "http://localhost:8080/api/user/1",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "",
+                      "key": "mail",
+                      "type": "text",
+                      "value": "changemoica@mail.com"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/user/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "user",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "equals": true,
+                      "key": "idzerez",
+                      "value": "zezer",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html;charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 12:10:27 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "Mise \u00e0 jour effectu\u00e9e pour le user 1"
+            }
+          ]
+        },
+        {
+          "_postman_id": "6aa753c0-f08e-4c87-ab5e-f17dc3358bda",
+          "name": "http://localhost:8080/api/user/1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d2f0160f-4a89-46d0-8f35-5cf69247026b",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Body matches string\", function () {",
+                  "    pm.expect(pm.response.text()).to.include(\"changemoica@mail.com\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "",
+                  "key": "messageContent",
+                  "type": "text",
+                  "value": "changemoica"
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/user/1",
+            "description": "Requete : GET sur user\nStatus : 200 OK\nDescription : observation du changement apres le PUT precedent"
+          },
+          "response": [
+            {
+              "id": "689085ad-91e8-4285-827e-5c9c0ca56520",
+              "name": "http://localhost:8080/api/user/1",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "",
+                      "key": "messageContent",
+                      "type": "text",
+                      "value": "changemoica"
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/user/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml;charset=UTF-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 12:12:55 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<user id=\"1\">\n    <dateCreated>2018-11-04 12:15:03.109 CET</dateCreated>\n    <firstName>admin</firstName>\n    <passwordExpired>false</passwordExpired>\n    <lastUpdated>2018-11-04 13:10:26.915 CET</lastUpdated>\n    <accountExpired>false</accountExpired>\n    <mail>changemoica@mail.com</mail>\n    <dob />\n    <username>admin</username>\n    <accountLocked>false</accountLocked>\n    <tel />\n    <password>$2a$10$Tt8PkqM2Eq5ysID05Z2kr.pUZRPUy4sHD3JqyUE5qruypdigCMMo6</password>\n    <lastName>admin</lastName>\n    <enabled>true</enabled>\n</user>"
+            }
+          ]
+        },
+        {
+          "_postman_id": "2a98fdfc-169e-492d-9cc0-3b0ad7c75682",
+          "name": "http://localhost:8080/api/user/",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2277e4e9-40bb-4fc1-b219-48dceeb18111",
+                "exec": [
+                  "pm.test(\"Status code is 405\", function () {",
+                  "    pm.response.to.have.status(405);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "text/xml",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "",
+                  "key": "messageContent",
+                  "type": "text",
+                  "value": "changemoica"
+                }
+              ]
+            },
+            "url": "http://localhost:8080/api/user/",
+            "description": "Requete : PATCH sur user\nStatus : 405\nDescription : Methodes non authoris\u00e9es"
+          },
+          "response": [
+            {
+              "id": "41706981-db10-4e53-8c7f-040a56deff44",
+              "name": "http://localhost:8080/api/user/",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "text/xml",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "",
+                      "key": "messageContent",
+                      "type": "text",
+                      "value": "changemoica"
+                    }
+                  ]
+                },
+                "url": "http://localhost:8080/api/user/"
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "X-Application-Context",
+                  "value": "application:development"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "0"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Nov 2018 12:16:12 GMT"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_postman_id": "8bfa450b-78f0-4227-a00d-db62da171126",
+      "name": "messageToUser",
+      "description": "requetes pour api/messageToUser",
+      "item": []
+    },
+    {
+      "_postman_id": "625f96c4-5651-4fa5-9855-ca4e4be6ad0e",
+      "name": "messageToGroup",
+      "description": "requetes pour api/messageToGroup",
+      "item": []
+    }
+  ]
+}
