@@ -220,23 +220,29 @@ class ApiController {
         if (request.getMethod().equals("POST")) {
             def messageInstance
 
-            if (params.id)  // on doit retourner une instance de message
+            if (params.messageId)  // on doit retourner une instance de message
             {
-                messageInstance = Message.get(params.id)
-                createNewUserMessage( params.receiver.id, messageInstance)
-            }else{
-                //Verifier auteur
-                def authorInstance = params.author.id ? User.get(params.author.id) : null
+                messageInstance = Message.get(params.messageId)
+                createNewUserMessage( params.receiverId, messageInstance)
 
-                if (authorInstance) {
-                    //creer le message
-                    messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
-                    if (messageInstance.save(flush: true))
-                        createNewUserMessage( params.receiver.id, messageInstance)
-                }
-            }
-        }
-        else
+            }else if (params.authorId&&params.messageContent){
+                //Verifier auteur
+                //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
+                    def authorInstance = User.get(params.authorId)
+
+                    if (authorInstance) {
+                            //creer le message
+                            messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
+                            if (messageInstance.save(flush: true))
+                                createNewUserMessage(params.receiverId, messageInstance)
+                            else
+                                response.status = 400
+                    } else
+                        render(status:404,text:"Le message crée n'a pas d'auteur existant")
+            } else
+                render(status:400,text:"Il n'y a ni message désigné, ni les bons parametres pour creer un nouveau message ")
+
+        } else
             response.status = 405
     }
 
@@ -276,11 +282,12 @@ class ApiController {
                 if (new UserMessage(user: receiverInstance, message: messageInstance).save(flush:true)){
                     render(status: 201)
                 }
-            }
-        }
-        if (response.status != 201)
-            response.status = 400
-
+                if (response.status != 201)
+                    response.status = 400
+            }else
+                render(status:404,text:"Le destinataire n'existe pas")
+        }else
+            render(status:400,text:"Il n'y a pas l'Id du destinataire")
     }
 
     def createNewGroupMessage( idGroupe , Message messageInstance){
