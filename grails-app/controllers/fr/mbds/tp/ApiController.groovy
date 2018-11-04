@@ -68,7 +68,7 @@ class ApiController {
                 break
 
             default:
-                response.status = 405
+                render(status:405,text:"Méthode non authorisée")
                 break
         }
     }
@@ -103,6 +103,9 @@ class ApiController {
 
                 if (response.status != 201)
                     response.status = 400
+                break
+            default:
+                render(status:405,text:"Méthode non authorisée")
                 break
         }
 
@@ -192,7 +195,7 @@ class ApiController {
                 break
 
             default:
-                response.status = 405
+                render(status:405,text:"Méthode non authorisée")
                 break
         }
     }
@@ -210,6 +213,9 @@ class ApiController {
                     render(status: 201)
                 if (response.status != 201)
                     response.status = 400
+                break
+            default:
+                render(status:405,text:"Méthode non authorisée")
                 break
 
         }
@@ -243,7 +249,7 @@ class ApiController {
                 render(status:400,text:"Il n'y a ni message désigné, ni les bons parametres pour creer un nouveau message ")
 
         } else
-            response.status = 405
+            render(status:405,text:"Méthode non authorisée")
     }
 
     def messageToGroup(){
@@ -280,7 +286,7 @@ class ApiController {
             def receiverInstance = User.get(idreceiver)
             if (receiverInstance){
                 if (new UserMessage(user: receiverInstance, message: messageInstance).save(flush:true)){
-                    render(status: 201)
+                    render(status: 201,text:"Succes")
                 }
                 if (response.status != 201)
                     response.status = 400
