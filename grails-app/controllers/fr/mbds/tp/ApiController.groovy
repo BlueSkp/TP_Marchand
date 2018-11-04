@@ -256,26 +256,30 @@ class ApiController {
         if (request.getMethod().equals("POST")) {
             def messageInstance
 
-            if (params.id)  // on doit retourner une instance de message
+            if (params.messageId)  // on doit retourner une instance de message
             {
-                messageInstance = Message.get(params.id)
-                createNewGroupMessage( params.role.id, messageInstance)
-            }else{
+                messageInstance = Message.get(params.messageId)
+                createNewGroupMessage( params.groupId, messageInstance)
+
+            }else if (params.authorId&&params.messageContent){
                 //Verifier auteur
-                def authorInstance = params.author.id ? User.get(params.author.id) : null
+                //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
+                def authorInstance = User.get(params.authorId)
 
                 if (authorInstance) {
                     //creer le message
                     messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
                     if (messageInstance.save(flush: true))
-                        createNewGroupMessage( params.role.id, messageInstance)
-                }
-            }
-            if (response.status != 201)
-                response.status = 400
-        }
-        else
-            response.status = 405
+                        createNewGroupMessage(params.groupId, messageInstance)
+                    else
+                        response.status = 400
+                } else
+                    render(status:404,text:"Le message crée n'a pas d'auteur existant")
+            } else
+                render(status:400,text:"Il n'y a ni message désigné, ni les bons parametres pour creer un nouveau message ")
+
+        } else
+            render(status:405,text:"Méthode non authorisée")
     }
 
 
@@ -305,8 +309,8 @@ class ApiController {
             def userRoles = UserRole.findAllByRole(roleInstance)
             // On itere sur la liste et pour chaque user on creer un user message
             userRoles.each {
-                UserMessage userMessage ->
-                    createNewUserMessage( userMessage.id , messageInstance)
+                UserRole userRole ->
+                    createNewUserMessage( userRole.getUser().getId() , messageInstance)
             }
 
         }
