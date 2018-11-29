@@ -228,9 +228,14 @@ class ApiController {
 
             if (params.messageId)  // on doit retourner une instance de message
             {
-                messageInstance = Message.get(params.messageId)
-                createNewUserMessage( params.receiverId, messageInstance)
-
+                if ( Message.get(params.messageId)) {
+                    messageInstance =Message.get(params.messageId)
+                    createNewUserMessage(params.receiverId, messageInstance)
+                    if (response.status==201){
+                        render(status: 201, text: "success")
+                    }
+                }else
+                    render(status:404,text:"Le message n'existe pas (mauvais ID)")
             }else if (params.authorId&&params.messageContent){
                 //Verifier auteur
                 //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
@@ -239,8 +244,13 @@ class ApiController {
                     if (authorInstance) {
                             //creer le message
                             messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
-                            if (messageInstance.save(flush: true))
+                            if (messageInstance.save(flush: true)) {
                                 createNewUserMessage(params.receiverId, messageInstance)
+                                if (response.status==201){
+                                    render(status: 201, text: "success")
+                                }
+
+                            }
                             else
                                 response.status = 400
                     } else
@@ -255,31 +265,37 @@ class ApiController {
     def messageToGroup(){
         if (request.getMethod().equals("POST")) {
             def messageInstance
-
-            if (params.messageId)  // on doit retourner une instance de message
-            {
-                messageInstance = Message.get(params.messageId)
-                createNewGroupMessage( params.groupId, messageInstance)
-
-            }else if (params.authorId&&params.messageContent){
-                //Verifier auteur
-                //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
-                def authorInstance = User.get(params.authorId)
-
-                if (authorInstance) {
-                    //creer le message
-                    messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
-                    if (messageInstance.save(flush: true))
+            def groupId = params.groupId ? Message.get(params.groupId) : null
+            if (groupId) {
+                if (params.messageId)  // on doit retourner une instance de message
+                {
+                    if (Message.get(params.messageId)) {
+                        messageInstance = Message.get(params.messageId)
                         createNewGroupMessage(params.groupId, messageInstance)
-                    else
-                        response.status = 400
-                } else
-                    render(status:404,text:"Le message crée n'a pas d'auteur existant")
-            } else
-                render(status:400,text:"Il n'y a ni message désigné, ni les bons parametres pour creer un nouveau message ")
+                    } else
+                        render(status: 404, text: "Le message n'existe pas (mauvais ID)")
+                } else if (params.authorId && params.messageContent) {
+                    //Verifier auteur
+                    //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
+                    def authorInstance = User.get(params.authorId)
 
-        } else
-            render(status:405,text:"Méthode non authorisée")
+                    if (authorInstance) {
+                        //creer le message
+                        messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
+                        if (messageInstance.save(flush: true))
+                            createNewGroupMessage(params.groupId, messageInstance)
+                        else
+                            response.status = 400
+                    } else
+                        render(status: 404, text: "Le message crée n'a pas d'auteur existant")
+                } else
+                    render(status: 400, text: "Il n'y a ni message désigné, ni les bons parametres pour creer un nouveau message ")
+
+            }else
+                render(status: 404, text: "Group non existant")
+        }
+        else
+            render(status: 405, text: "Méthode non authorisée")
     }
 
 
@@ -290,15 +306,17 @@ class ApiController {
             def receiverInstance = User.get(idreceiver)
             if (receiverInstance){
                 if (new UserMessage(user: receiverInstance, message: messageInstance).save(flush:true)){
-                    render(status: 201,text:"Succes")
+                    //render(status: 201,text:"succes")
+                    response.status=201
                 }
-                if (response.status != 201)
+                else
                     response.status = 400
             }else
                 render(status:404,text:"Le destinataire n'existe pas")
         }else
             render(status:400,text:"Il n'y a pas l'Id du destinataire")
     }
+
 
     def createNewGroupMessage( idGroupe , Message messageInstance){
         // Ajouter destinataires
@@ -308,19 +326,26 @@ class ApiController {
             // On recupere la liste des UserRole du groupe Role voulu
             def userRoles = UserRole.findAllByRole(roleInstance)
             // On itere sur la liste et pour chaque user on creer un user message
-            userRoles.each {
-                UserRole userRole ->
-                    createNewUserMessage( userRole.getUser().getId() , messageInstance)
+            //userRoles.each {
+            //    UserRole userRole ->
+            //        createNewUserMessage( userRole.getUser().getId() , messageInstance)
+
+            //}
+            for ( i in 1..userRoles.size()) {
+                createNewUserMessage( userRoles[i-1].getUser().getId() , messageInstance)
+                if (response.status!=201)
+                    break
             }
-
+            if (response.status==201)
+                render(status:201,text:"Succes")
         }
-
     }
 
 
     def reponseFormat(Object instance, HttpServletRequest request) {
         switch (request.getHeader("Accept")) {
             case "text/xml":
+            case "application/xml":
                 render instance as XML
                 break
             case "text/json":
@@ -335,6 +360,7 @@ class ApiController {
     def reponseFormatList(List list, HttpServletRequest request) {
         switch (request.getHeader("Accept")) {
             case "text/xml":
+            case "application/xml":
                 render list as XML
                 break
             case "text/json":
