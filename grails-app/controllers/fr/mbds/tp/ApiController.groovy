@@ -334,9 +334,11 @@ class ApiController {
             for ( i in 1..userRoles.size()) {
                 createNewUserMessage( userRoles[i-1].getUser().getId() , messageInstance)
                 if (response.status!=201)
+                    //si l'un des enregistrement de UserMessage ne fonctionne pas, on arrete
                     break
             }
             if (response.status==201)
+                //si tous les enregistrements ont fonctionné alors succes
                 render(status:201,text:"Succes")
         }
     }

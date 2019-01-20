@@ -30,11 +30,10 @@
                     %{--<f:all bean="message"/>--}%
 
                     <fieldset class="form">
-                        <div class="fieldcontain required">
-                            <label for="messageContent">Message Content <span class="required-indicator">*</span> </label>
-                            <input type="text" name="messageContent" value="" required="" id="messageContent">
-                        </div>
-
+                        %{--<div class="fieldcontain required">--}%
+                            %{--<label for="messageContent">Message Content <span class="required-indicator">*</span> </label>--}%
+                            %{--<input type="text" name="messageContent" value="" required="" id="messageContent">--}%
+                        %{--</div>--}%
                     <div class="fieldcontain required">
                         <label for="messageContent">Author <span class="required-indicator">*</span> </label>
                         <input type="text" name="messageContent" value="${authorInstance.firstName}" required="" id="authorInstance">
@@ -48,6 +47,11 @@
                     <div class="fieldcontain required">
                         <label for="messageContent">Groupes <span class="required-indicator">*</span> </label>
                         <input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label for="messageContent">Message Content <span class="required-indicator">*</span> </label>
+                        <g:textArea name="messageContent" value="" rows="5" cols="40" id="messageContent"/>
                     </div>
 
                     %{--<div class="fieldcontain">--}%
