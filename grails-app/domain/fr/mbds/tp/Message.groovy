@@ -12,6 +12,8 @@ class Message {
         author nullable: true
     }
 
-
+    static mapping = {
+        sort dateCreated:"desc"
+    }
 
 }
