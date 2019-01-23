@@ -24,11 +24,6 @@
             <ol class="property-list message">
 
                 <li class="fieldcontain">
-                    <span id="messageContent-label" class="property-label">Message Content</span>
-                    <div class="property-value" aria-labelledby="messageContent-label">${message.messageContent}</div>
-                </li>
-
-                <li class="fieldcontain">
                     <span id="author-label" class="property-label">Author</span>
                     <div class="property-value" aria-labelledby="author-label">
                         <g:link controller="user" action="show" id="${message.author.id}">
@@ -39,13 +34,23 @@
 
                 <li class="fieldcontain">
                     <span id="destinataire-label" class="property-label">Destinataire</span>
-                    <div class="property-value" aria-labelledby="author-label">
+                    <div class="property-value" aria-labelledby="destinataire-label">
                         <g:each in="${userList}" var="user">
                             <g:link controller="user" action="show" id="${user.id}">
                                 ${user.firstName+" "+user.lastName},
                             </g:link>
                         </g:each>
                     </div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="messageContent-label" class="property-label">Message Content</span>
+                    <div class="property-value" aria-labelledby="messageContent-label">${message.messageContent}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="messageDate-label" class="property-label">Date Created</span>
+                    <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
                 </li>
 
             </ol>

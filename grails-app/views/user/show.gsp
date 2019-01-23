@@ -19,8 +19,50 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="user" except="password" />
+            %{--<f:display bean="user" except="password" />--}%
+            <ol class="property-list message">
 
+                <li class="fieldcontain">
+                    <span id="userUsername-label" class="property-label">Username</span>
+                    <div class="property-value" aria-labelledby="userUsername-label">${user.username}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="userFirstName-label" class="property-label">First Name</span>
+                    <div class="property-value" aria-labelledby="userFirstName-label">${user.firstName}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="userLastName-label" class="property-label">Last Name</span>
+                    <div class="property-value" aria-labelledby="userLastName-label">${user.lastName}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="userMail-label" class="property-label">Mail</span>
+                    <div class="property-value" aria-labelledby="userMail-label">${user.mail}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="userTel-label" class="property-label">Telephone</span>
+                    <div class="property-value" aria-labelledby="userTel-label">${user.tel}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="userDoB-label" class="property-label">Date of Birth</span>
+                    <div class="property-value" aria-labelledby="userDoB-label">${user.dob}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="membre-label" class="property-label">Membre du groupe</span>
+                    <div class="property-value" aria-labelledby="membre-label">
+                        <g:each in="${roleList}" var="role">
+                            <g:link controller="role" action="show" id="${role.id}">
+                                ${role.authority},
+                            </g:link>
+                        </g:each>
+                    </div>
+                </li>
+            </ol>
 
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">

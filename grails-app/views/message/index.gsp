@@ -23,7 +23,7 @@
                 <tr>
                     <g:sortableColumn property="messageContent" title="Message" />
                     <g:sortableColumn property="author" title="Author" />
-                    <g:sortableColumn property="dateCreated" title="DateCreated" />
+                    <g:sortableColumn property="dateCreated" title="DateCreated"  />
 
                 </tr>
 

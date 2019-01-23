@@ -13,6 +13,8 @@ class Role implements Serializable {
 
 	String authority
 
+	Date dateCreated
+
 	static constraints = {
 		authority nullable: false, blank: false, unique: true
 	}

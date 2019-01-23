@@ -125,4 +125,5 @@ class MessageController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
 }

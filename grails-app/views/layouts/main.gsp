@@ -37,7 +37,6 @@
                 <a class="nav-link <g:if test="${params.controller=='user'}">nav-link active</g:if>" href="${g.createLink(controller: 'user')}">Users</a>
                 <a class="nav-link <g:if test="${params.controller=='message'}">nav-link active</g:if>" href="${g.createLink(controller: 'message')}">Messages</a>
                 <a class="nav-link <g:if test="${params.controller=='role'}">nav-link active</g:if>" href="${g.createLink(controller: 'role')}">Groupes</a>
-                <a class="nav-link <g:if test="${params.controller=='custom'}">nav-link active</g:if>" href="${g.createLink(controller: 'custom')}">Custom</a>
             </nav>
             </div>
         </div>

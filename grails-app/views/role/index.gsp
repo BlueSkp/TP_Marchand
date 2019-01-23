@@ -18,7 +18,22 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:table collection="${roleList}" />
+            %{--<f:table collection="${roleList}" />--}%
+
+            <table>
+                <tr>
+                    <g:sortableColumn property="authority" title="Intitulé" />
+                    <g:sortableColumn property="dateCreated" title="Date created" />
+                </tr>
+
+                <g:each in="${roleList}" var="role">
+
+                    <tr>
+                        <td><g:link controller="role" action="show" id="${role.id}">${role.authority}</g:link></td>
+                        <td>${role.dateCreated}</td>
+                    </tr>
+                </g:each>
+            </table>
 
             <div class="pagination">
                 <g:paginate total="${roleCount ?: 0}" />

@@ -19,7 +19,26 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="role" />
+            %{--<f:display bean="role" />--}%
+            <ol class="property-list message">
+
+                <li class="fieldcontain">
+                    <span id="roleIntitule-label" class="property-label">Intitulé du groupe</span>
+                    <div class="property-value" aria-labelledby="roleIntitule-label">${role.authority}</div>
+                </li>
+
+                <li class="fieldcontain">
+                    <span id="membre-label" class="property-label">Membre(s) du groupe</span>
+                    <div class="property-value" aria-labelledby="membre-label">
+                        <g:each in="${userList}" var="user">
+                            <g:link controller="user" action="show" id="${user.id}">
+                                ${user.firstName+" "+user.lastName},
+                            </g:link>
+                        </g:each>
+                    </div>
+                </li>
+            </ol>
+
             <g:form resource="${this.role}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.role}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
