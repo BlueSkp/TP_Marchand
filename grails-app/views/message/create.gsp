@@ -1,9 +1,11 @@
+<%@ page import="fr.mbds.tp.User; fr.mbds.tp.Role" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'message.label', default: 'Message')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <g:javascript library='jquery' />
     </head>
     <body>
         <a href="#create-message" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -30,23 +32,50 @@
                     %{--<f:all bean="message"/>--}%
 
                     <fieldset class="form">
-                        %{--<div class="fieldcontain required">--}%
-                            %{--<label for="messageContent">Message Content <span class="required-indicator">*</span> </label>--}%
-                            %{--<input type="text" name="messageContent" value="" required="" id="messageContent">--}%
-                        %{--</div>--}%
                     <div class="fieldcontain required">
                         <label for="messageContent">Author <span class="required-indicator">*</span> </label>
-                        <input type="text" name="messageContent" value="${authorInstance.firstName}" required="" id="authorInstance">
+                        %{--<input type="text" name="messageContent" value="${authorInstance.firstName}" required="" id="authorInstance">--}%
+                        %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
+                                  %{--onchange="categoryChanged(this.value);"--}%
+                                 %{--value="${authorInstance.username}"--}%
+                        %{--/>--}%
+                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%" value="${authorInstance.firstName}">
+                            <g:each in="${fr.mbds.tp.User.list()}">
+                                <option>${it.username} ${it.mail}</option>
+                            </g:each>
+                        </select>
                     </div>
+
+
 
                     <div class="fieldcontain required">
                         <label for="messageContent">Destinataires <span class="required-indicator">*</span> </label>
-                        <input type="text" name="destinataire" value="${destinataireList.mail}" required="" id="destinataires">
+                        %{--<input type="text" name="destinataire" value="${destinataireList.mail}" required="" id="destinataires">--}%
+                        %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
+                                  %{--onchange="categoryChanged(this.value);"--}%
+                                  %{--value=""--}%
+                                %{--multiple="yes"--}%
+                        %{--/>--}%
+                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%">
+                            <g:each in="${fr.mbds.tp.User.list()}">
+                                <option>${it.username} ${it.mail}</option>
+                            </g:each>
+                        </select>
                     </div>
 
                     <div class="fieldcontain required">
                         <label for="messageContent">Groupes <span class="required-indicator">*</span> </label>
-                        <input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">
+                        %{--<input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">--}%
+                        %{--<g:select id="role" name="role.id" from="${fr.mbds.tp.Role.listOrderByAuthority().authority}"--}%
+                                  %{--onchange="categoryChanged(this.value);"--}%
+                                  %{--value=""--}%
+                                  %{--multiple="yes"--}%
+                        %{--/>--}%
+                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%">
+                            <g:each in="${Role.list()}">
+                                <option>${it.authority}</option>
+                            </g:each>
+                        </select>
                     </div>
 
                     <div class="fieldcontain required">
@@ -54,16 +83,8 @@
                         <g:textArea name="messageContent" value="" rows="5" cols="40" id="messageContent"/>
                     </div>
 
-                    %{--<div class="fieldcontain">--}%
-                        %{--<label for="author">Author <span class="required-indicator">*</span></label>--}%
-                            %{--<select name="author.id" id="author">--}%
-                            %{--<g:each in="${user.id}" var="user">--}%
-                                    %{--<option value="${user.id}">${user.firstName+" "+user.lastName}</option>--}%
-                            %{--</g:each>--}%
 
-                            %{--</select>--}%
-                    %{--</div>--}%
-                    </fieldset>
+                </fieldset>
 
 
                 </fieldset>
@@ -72,6 +93,10 @@
                 </fieldset>
             </g:form>
         </div>
+
+        <content tag="javascript">
+            <script type="text/javascript" src="${request.contextPath}js/samplePage.js"></script>
+        </content>
 
     </body>
 </html>

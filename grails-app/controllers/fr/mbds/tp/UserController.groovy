@@ -1,5 +1,6 @@
 package fr.mbds.tp
 
+import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
@@ -101,4 +102,5 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
 }

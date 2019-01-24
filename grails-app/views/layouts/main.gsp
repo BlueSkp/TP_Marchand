@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 
+    <asset:javascript src="application.js"/>
     <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
@@ -51,6 +52,26 @@
     </div>
 
     <asset:javascript src="application.js"/>
+
+    <script type="text/javascript" src="${request.contextPath}js/common.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({
+                width: 'resolve',
+                tags: true,
+                createTag: function (params) {
+                    return null;
+                }
+            });
+        });
+    </script>
+    <g:pageProperty name="page.javascript"/>
+    <!-- End: Custom Page JavaScript Should Go Here -->
+
 
 </body>
 </html>

@@ -1,9 +1,11 @@
+<%@ page import="fr.mbds.tp.User" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'role.label', default: 'Role')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <g:javascript library='jquery' />
     </head>
     <body>
         <a href="#create-role" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -27,12 +29,33 @@
             </g:hasErrors>
             <g:form resource="${this.role}" method="POST">
                 <fieldset class="form">
-                    <f:all bean="role"/>
+                    %{--<f:all bean="role"/>--}%
+                    <div class="fieldcontain required">
+                        <label>Name <span class="required-indicator">*</span> </label>
+                        <input type="text" name="nameGroup" value="" required="" id="nameGroup">
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>Membre(s) du groupe </label>
+                        %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername()}" optionKey="id"--}%
+                                  %{--noSelection="[null:' ']"--}%
+                                  %{--onchange="categoryChanged(this.value);"--}%
+                            %{--multiple="yes"--}%
+                       %{--/>--}%
+                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%" value="">
+                            <g:each in="${fr.mbds.tp.User.list()}">
+                                <option>${it.username} ${it.mail}</option>
+                            </g:each>
+                        </select>
+                    </div>
+
+
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
             </g:form>
         </div>
+
     </body>
 </html>

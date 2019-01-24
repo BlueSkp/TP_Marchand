@@ -31,7 +31,6 @@
                 <fieldset class="form">
                     <f:all bean="message"/>
 
-                    <g:select name="test" from="${fr.mbds.tp.User.list()}" optionValue="username" optionKey="id"/>
 
 
                 </fieldset>
