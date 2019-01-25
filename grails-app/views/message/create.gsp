@@ -39,7 +39,7 @@
                                   %{--onchange="categoryChanged(this.value);"--}%
                                  %{--value="${authorInstance.username}"--}%
                         %{--/>--}%
-                        <select class="js-example-basic-multiple" name="author" multiple="multiple" style="width: 60%" value="${authorInstance.firstName}">
+                        <select class="js-example-basic-multiple" name="authorString" style="width: 60%" optionValue="username" >
                             <g:each in="${fr.mbds.tp.User.list()}">
                                 <option>${it.username}</option>
                             </g:each>

@@ -52,8 +52,13 @@ class UserController {
             userService.save(user)
             def roles = params.roles
             if (roles != null) {
-                roles.each {
-                    def role = Role.findByAuthority(it)
+                if (roles.getClass()!=String) {
+                    roles.each {
+                        def role = Role.findByAuthority(it)
+                        UserRole.create(user, role, true)
+                    }
+                }else{
+                    def role = Role.findByAuthority(roles)
                     UserRole.create(user, role, true)
                 }
             }

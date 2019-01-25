@@ -27,14 +27,14 @@ class MessageController {
 
     def create() {
 //      SpringSecurityService.getPrincipale()
-        def authorInstance = User.get(principal.id)
-        if (!authorInstance)
-            authorInstance = User.get(10)
-        def destinataireList = User.getAll()
-        def groupeList = Role.getAll()
-        respond new Message(params), model: [authorInstance : authorInstance,destinataireList: destinataireList,groupeList: groupeList]
+//        def authorInstance = User.get(principal.id)
+//        if (!authorInstance)
+//            authorInstance = User.get(10)
+//        def destinataireList = User.getAll()
+//        def groupeList = Role.getAll()
+//        respond new Message(params), model: [authorInstance : authorInstance,destinataireList: destinataireList,groupeList: groupeList]
 
-//      respond new Message(params)
+        respond new Message(params)
     }
 
     def save(Message message) {
@@ -44,7 +44,56 @@ class MessageController {
         }
 
         try {
+            //le select2 renvoi un string et non un objet, donc on récupère l'objet user/author ainsi :
+            message.author= User.findByUsername(params.authorString)
             messageService.save(message)
+
+            //liste de tous les destinataires à qui il faut envoyer le message, avec répition possible (car membres de plusieurs groupes par exemples)
+            def listeNOTDistinctDestinataires = []
+
+            def destinataires = params.destinataires
+            if (destinataires != null) {
+                if (destinataires.getClass()!=String){ //ce test est dans le cas qu'il n'y est qu'un seul element, au quel cas each diviserait l'élément caractere par caractere
+                    destinataires.each {
+                        def destinataire = User.findByUsername(it)
+                        listeNOTDistinctDestinataires.add(destinataire)
+                        //UserMessage.create(destinataire, message, true)
+                    }
+                }
+                else{
+                    def destinataire = User.findByUsername(destinataires)
+                    //UserMessage.create(destinataire, message, true)
+                    listeNOTDistinctDestinataires.add(destinataire)
+                }
+
+            }
+            def groupes = params.groupes
+            if (groupes != null) {
+                if (groupes.getClass()!=String) {
+                    groupes.each {
+                        def groupe = Role.findByAuthority(it)
+                        def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
+                        membresGroupe.each {
+                            listeNOTDistinctDestinataires.add(it)
+                            //UserMessage.create(it, message, true)
+                        }
+                    }
+                }else{
+                    def groupe = Role.findByAuthority(groupes)
+                    def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
+                    membresGroupe.each {
+                        //UserMessage.create(it, message, true)
+                        listeNOTDistinctDestinataires.add(it)
+                    }
+                }
+
+            }
+
+            def listeDistinctDestinataires = listeNOTDistinctDestinataires.unique()
+            listeDistinctDestinataires.each{
+                UserMessage.create(it, message, true)
+            }
+
         } catch (ValidationException e) {
             respond message.errors, view:'create'
             return

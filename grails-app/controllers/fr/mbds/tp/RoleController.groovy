@@ -37,8 +37,13 @@ class RoleController {
             roleService.save(role)
             def membres = params.membres
             if (membres != null) {
-                membres.each {
-                    def membre = User.findByUsername(it)
+                if (membres.getClass()!=String) {
+                    membres.each {
+                        def membre = User.findByUsername(it)
+                        UserRole.create(membre, role, true)
+                    }
+                }else{
+                    def membre = User.findByUsername(membres)
                     UserRole.create(membre, role, true)
                 }
             }
