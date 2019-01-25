@@ -37,32 +37,32 @@
 
                     <div class="fieldcontain required">
                         <label>Password <span class="required-indicator">*</span> </label>
-                        <g:passwordField name="myPasswordField" value="${myPassword}" />
+                        <g:passwordField name="password" value="${myPassword}" id="password" />
                     </div>
 
                     <div class="fieldcontain required">
                         <label>First Name <span class="required-indicator">*</span> </label>
-                        <input type="text" name="messageContent" value="" required="" id="firstname">
+                        <input type="text" name="firstName" value="" required="" id="firstName">
                     </div>
 
                     <div class="fieldcontain required">
                         <label>Last Name <span class="required-indicator">*</span> </label>
-                        <input type="text" name="messageContent" value="" required="" id="lastname">
+                        <input type="text" name="lastName" value="" required="" id="lastName">
                     </div>
 
-                    <div class="fieldcontain ">
-                        <label>Mail </label>
-                        <input type="text" name="messageContent" value=" " required="" id="mail">
+                    <div class="fieldcontain required">
+                        <label>Mail<span class="required-indicator">*</span> </label>
+                        <input type="text" name="mail" value="" required="" id="mail">
                     </div>
 
                     <div class="fieldcontain">
                         <label>Telephone </label>
-                        <input type="text" name="messageContent" value=" " required="" id="telephone">
+                        <input type="text" name="tel" value=" " required="" id="tel">
                     </div>
 
-                    <div class="fieldcontain required">
-                        <label>Date of Birth <span class="required-indicator">*</span> </label>
-                        <g:datePicker name="myDate" value="${new Date()}"
+                    <div class="fieldcontain">
+                        <label>Date of Birth</label>
+                        <g:datePicker name="dob" value=""
                                       noSelection="['':'-Choose-']"
                                       precision="day"
                                       relativeYears="[-100..-10]"/>
@@ -76,13 +76,12 @@
                                   %{--value=""--}%
                                   %{--multiple="yes"--}%
                         %{--/>--}%
-                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%">
+                        <select class="js-example-basic-multiple" name="roles" id="roles" multiple="multiple" style="width: 60%">
                             <g:each in="${fr.mbds.tp.Role.list()}">
                                 <option>${it.authority}</option>
                             </g:each>
                         </select>
                     </div>
-
 
 
                 </fieldset>

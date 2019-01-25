@@ -33,15 +33,15 @@
 
                     <fieldset class="form">
                     <div class="fieldcontain required">
-                        <label for="messageContent">Author <span class="required-indicator">*</span> </label>
+                        <label>Author <span class="required-indicator">*</span> </label>
                         %{--<input type="text" name="messageContent" value="${authorInstance.firstName}" required="" id="authorInstance">--}%
                         %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
                                   %{--onchange="categoryChanged(this.value);"--}%
                                  %{--value="${authorInstance.username}"--}%
                         %{--/>--}%
-                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%" value="${authorInstance.firstName}">
+                        <select class="js-example-basic-multiple" name="author" multiple="multiple" style="width: 60%" value="${authorInstance.firstName}">
                             <g:each in="${fr.mbds.tp.User.list()}">
-                                <option>${it.username} ${it.mail}</option>
+                                <option>${it.username}</option>
                             </g:each>
                         </select>
                     </div>
@@ -49,29 +49,29 @@
 
 
                     <div class="fieldcontain required">
-                        <label for="messageContent">Destinataires <span class="required-indicator">*</span> </label>
+                        <label>Destinataires <span class="required-indicator">*</span> </label>
                         %{--<input type="text" name="destinataire" value="${destinataireList.mail}" required="" id="destinataires">--}%
                         %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
                                   %{--onchange="categoryChanged(this.value);"--}%
                                   %{--value=""--}%
                                 %{--multiple="yes"--}%
                         %{--/>--}%
-                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%">
+                        <select class="js-example-basic-multiple" name="destinataires" multiple="multiple" style="width: 60%">
                             <g:each in="${fr.mbds.tp.User.list()}">
-                                <option>${it.username} ${it.mail}</option>
+                                <option>${it.username}</option>
                             </g:each>
                         </select>
                     </div>
 
                     <div class="fieldcontain required">
-                        <label for="messageContent">Groupes <span class="required-indicator">*</span> </label>
+                        <label>Groupes <span class="required-indicator">*</span> </label>
                         %{--<input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">--}%
                         %{--<g:select id="role" name="role.id" from="${fr.mbds.tp.Role.listOrderByAuthority().authority}"--}%
                                   %{--onchange="categoryChanged(this.value);"--}%
                                   %{--value=""--}%
                                   %{--multiple="yes"--}%
                         %{--/>--}%
-                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%">
+                        <select class="js-example-basic-multiple" name="groupes" multiple="multiple" style="width: 60%">
                             <g:each in="${Role.list()}">
                                 <option>${it.authority}</option>
                             </g:each>
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="fieldcontain required">
-                        <label for="messageContent">Message Content <span class="required-indicator">*</span> </label>
+                        <label>Message Content <span class="required-indicator">*</span> </label>
                         <g:textArea name="messageContent" value="" rows="5" cols="40" id="messageContent"/>
                     </div>
 

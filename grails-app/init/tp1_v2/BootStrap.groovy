@@ -36,10 +36,12 @@ class BootStrap {
 //      role MBDS et message, pour les 5 premiers users
         def roleMBDS = new Role(authority:"ROLE_MBDS").save(flush:true,failOnError:true)
         def messageInstanceMBDS =  new Message(messageContent: "Bienvenue en MBDS",author: userAdmin).save(flush:true,failOnError:true)
+        def messageInstanceMBDS2 =  new Message(messageContent: "Dossiers d'inscription à rendre cette semaine DERNIER DELAI",author: userAdmin).save(flush:true,failOnError:true)
         User.list([max:5]).each {
             User userInstance ->
                 UserRole.create(userInstance,roleMBDS,true)
                 UserMessage.create(userInstance,messageInstanceMBDS, true)
+                UserMessage.create(userInstance,messageInstanceMBDS2, true)
         }
 
 

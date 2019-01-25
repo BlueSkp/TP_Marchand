@@ -32,7 +32,7 @@
                     %{--<f:all bean="role"/>--}%
                     <div class="fieldcontain required">
                         <label>Name <span class="required-indicator">*</span> </label>
-                        <input type="text" name="nameGroup" value="" required="" id="nameGroup">
+                        <input type="text" name="authority" value="" required="" id="authority">
                     </div>
 
                     <div class="fieldcontain required">
@@ -42,9 +42,9 @@
                                   %{--onchange="categoryChanged(this.value);"--}%
                             %{--multiple="yes"--}%
                        %{--/>--}%
-                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 60%" value="">
+                        <select class="js-example-basic-multiple" name="membres" multiple="multiple" style="width: 60%" value="">
                             <g:each in="${fr.mbds.tp.User.list()}">
-                                <option>${it.username} ${it.mail}</option>
+                                <option>${it.username}</option>
                             </g:each>
                         </select>
                     </div>

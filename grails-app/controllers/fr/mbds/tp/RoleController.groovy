@@ -35,6 +35,13 @@ class RoleController {
 
         try {
             roleService.save(role)
+            def membres = params.membres
+            if (membres != null) {
+                membres.each {
+                    def membre = User.findByUsername(it)
+                    UserRole.create(membre, role, true)
+                }
+            }
         } catch (ValidationException e) {
             respond role.errors, view:'create'
             return

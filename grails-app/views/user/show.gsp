@@ -64,6 +64,70 @@
                 </li>
             </ol>
 
+            <ol class="property-list message">
+                <li class="fieldcontain">
+                    <span id="message_envoye" class="property-label">Messages Envoyés</span>
+                    <div class="property-value" aria-labelledby="membre-label">
+                        <g:each in="${messageEnvoyeList}" var="message">
+                            <li class="fieldcontain">
+                                <span class="property-label">Message</span>
+                            <g:link controller="message" action="show" id="${message.id}">
+                                ${message.messageContent},
+                            </g:link>
+
+                            <li class="fieldcontain">
+                                <span class="property-label">Date Created</span>
+                                <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
+                            </li>
+
+                            <li class="fieldcontain">
+                                <span id="destinataire-label" class="property-label">Destinataire</span>
+                                <div class="property-value" aria-labelledby="destinataire-label">
+                                    <g:each in="${destinatairesMessageEnvoyeList}" var="destinataires">
+                                        <g:each in="${destinataires}" var="destinataire">
+                                            <g:link controller="user" action="show" id="${destinataire.id}">
+                                                ${destinataire.firstName+" "+destinataire.lastName},
+                                            </g:link>
+                                        </g:each>
+                                    </g:each>
+                                </div>
+                            </li>
+                        </g:each>
+                    </div>
+                </li>
+
+            </ol>
+
+            <ol class="property-list message">
+                <li class="fieldcontain">
+                    <span id="message_recu" class="property-label">Messages Reçus</span>
+                    <div class="property-value" aria-labelledby="membre-label">
+                        <g:each in="${messageRecuList}" var="message">
+                            <li class="fieldcontain">
+                                <span class="property-label">Message</span>
+                                <g:link controller="message" action="show" id="${message.id}">
+                                    ${message.messageContent},
+                                </g:link>
+
+                            <li class="fieldcontain">
+                                <span class="property-label">Date Created</span>
+                                <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
+                            </li>
+
+                            <li class="fieldcontain">
+                                <span id="author-label" class="property-label">Author</span>
+                                <div class="property-value" aria-labelledby="destinataire-label">
+                                    <g:link controller="user" action="show" id="${message.author.id}">
+                                        ${message.author.firstName+" "+message.author.lastName},
+                                    </g:link>
+                                </div>
+                            </li>
+                        </g:each>
+                    </div>
+                </li>
+
+            </ol>
+
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
