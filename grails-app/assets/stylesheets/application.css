@@ -27,3 +27,15 @@ nav.nav a.nav-link.active {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
 
 }
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.container_user:after {
+    content: "";
+    display: table;
+    clear: both;
+}

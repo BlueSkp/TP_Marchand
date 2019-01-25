@@ -4,7 +4,11 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
+
+        <asset:stylesheet src="tabulation.css"/>
+        <asset:stylesheet src="scrollbar.css"/>
     </head>
+
     <body>
         <a href="#show-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
@@ -20,8 +24,11 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             %{--<f:display bean="user" except="password" />--}%
-            <ol class="property-list message">
 
+
+        <div class="container_user">
+        <div class="column">
+            <ol class="property-list">
                 <li class="fieldcontain">
                     <span id="userUsername-label" class="property-label">Username</span>
                     <div class="property-value" aria-labelledby="userUsername-label">${user.username}</div>
@@ -41,6 +48,10 @@
                     <span id="userMail-label" class="property-label">Mail</span>
                     <div class="property-value" aria-labelledby="userMail-label">${user.mail}</div>
                 </li>
+            </ol>
+        </div>
+            <div class="column">
+            <ol class="property-list">
 
                 <li class="fieldcontain">
                     <span id="userTel-label" class="property-label">Telephone</span>
@@ -63,17 +74,29 @@
                     </div>
                 </li>
             </ol>
+            </div>
+        </div>
 
-            <ol class="property-list message">
-                <li class="fieldcontain">
-                    <span id="message_envoye" class="property-label">Messages Envoyés</span>
-                    <div class="property-value" aria-labelledby="membre-label">
+            <div class="tab">
+                <button class="tablinks" onclick="openMessage(event, 'Recu')" id="defaultOpen" >Messages Reçus</button>
+                <button class="tablinks" onclick="openMessage(event, 'Envoye')">Messages Envoyés</button>
+
+            </div>
+
+            <div id="Envoye" class="tabcontent">
+                <div class="scroll">
+                %{--<li class="fieldcontain">--}%
+                    %{--<h1>Messages Envoyés</h1>--}%
+                    %{--<div class="property-value" aria-labelledby="membre-label">--}%
                         <g:each in="${messageEnvoyeList}" var="message">
+                            <ol class="property-list message">
+
                             <li class="fieldcontain">
                                 <span class="property-label">Message</span>
                             <g:link controller="message" action="show" id="${message.id}">
                                 ${message.messageContent},
                             </g:link>
+                            </li>
 
                             <li class="fieldcontain">
                                 <span class="property-label">Date Created</span>
@@ -92,17 +115,24 @@
                                     </g:each>
                                 </div>
                             </li>
+                            </ol>
                         </g:each>
-                    </div>
-                </li>
+                    %{--</div>--}%
+                %{--</li>--}%
 
-            </ol>
+            %{--</ol>--}%
+                </div>
+        </div>
 
-            <ol class="property-list message">
-                <li class="fieldcontain">
-                    <span id="message_recu" class="property-label">Messages Reçus</span>
-                    <div class="property-value" aria-labelledby="membre-label">
+        <div id="Recu" class="tabcontent">
+            <div class="scroll">
+
+                %{--<li class="fieldcontain">--}%
+                    %{--<h1>Messages Reçus</h1>--}%
+                    %{--<div class="property-value" aria-labelledby="membre-label" >--}%
                         <g:each in="${messageRecuList}" var="message">
+
+                            <ol class="property-list message">
                             <li class="fieldcontain">
                                 <span class="property-label">Message</span>
                                 <g:link controller="message" action="show" id="${message.id}">
@@ -122,11 +152,14 @@
                                     </g:link>
                                 </div>
                             </li>
+                            </ol>
                         </g:each>
-                    </div>
-                </li>
+                    %{--</div>--}%
+                %{--</li>--}%
 
-            </ol>
+            %{--</ol>--}%
+            </div>
+        </div>
 
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
@@ -135,5 +168,6 @@
                 </fieldset>
             </g:form>
         </div>
+
     </body>
 </html>
