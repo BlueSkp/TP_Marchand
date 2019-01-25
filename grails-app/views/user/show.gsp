@@ -88,7 +88,7 @@
                 %{--<li class="fieldcontain">--}%
                     %{--<h1>Messages Envoyés</h1>--}%
                     %{--<div class="property-value" aria-labelledby="membre-label">--}%
-                        <g:each in="${messageEnvoyeList}" var="message">
+                        <g:each in="${messageEnvoyeList}" var="message" status="i">
                             <ol class="property-list message">
 
                             <li class="fieldcontain">
@@ -106,13 +106,16 @@
                             <li class="fieldcontain">
                                 <span id="destinataire-label" class="property-label">Destinataire</span>
                                 <div class="property-value" aria-labelledby="destinataire-label">
-                                    <g:each in="${destinatairesMessageEnvoyeList}" var="destinataires">
-                                        <g:each in="${destinataires}" var="destinataire">
-                                            <g:link controller="user" action="show" id="${destinataire.id}">
-                                                ${destinataire.firstName+" "+destinataire.lastName},
+                                        <g:each in="${destinatairesMessageEnvoyeList[i]}" var="destinataireMessage">
+                                            <g:link controller="user" action="show" id="${destinataireMessage.id}">
+                                                ${destinataireMessage.firstName+" "+destinataireMessage.lastName},
                                             </g:link>
                                         </g:each>
-                                    </g:each>
+                                        %{--<g:each controller="user" action="getListDestinataires" var="destinataireMessage">--}%
+                                            %{--<g:link controller="user" action="show" id="${destinataireMessage.id}">--}%
+                                                %{--${destinataireMessage.firstName+" "+destinataireMessage.lastName},--}%
+                                            %{--</g:link>--}%
+                                        %{--</g:each>--}%
                                 </div>
                             </li>
                             </ol>
@@ -130,7 +133,7 @@
                 %{--<li class="fieldcontain">--}%
                     %{--<h1>Messages Reçus</h1>--}%
                     %{--<div class="property-value" aria-labelledby="membre-label" >--}%
-                        <g:each in="${messageRecuList}" var="message">
+                        <g:each in="${messageRecuList.reverse()}" var="message">
 
                             <ol class="property-list message">
                             <li class="fieldcontain">

@@ -51,19 +51,19 @@ class MessageController {
             //liste de tous les destinataires à qui il faut envoyer le message, avec répition possible (car membres de plusieurs groupes par exemples)
             def listeNOTDistinctDestinataires = []
 
-            def destinataires = params.destinataires
-            if (destinataires != null) {
-                if (destinataires.getClass()!=String){ //ce test est dans le cas qu'il n'y est qu'un seul element, au quel cas each diviserait l'élément caractere par caractere
-                    destinataires.each {
-                        def destinataire = User.findByUsername(it)
-                        listeNOTDistinctDestinataires.add(destinataire)
+            def destinatairesM = params.destinataires
+            if (destinatairesM != null) {
+                if (destinatairesM.getClass()!=String){ //ce test est dans le cas qu'il n'y est qu'un seul element, au quel cas each diviserait l'élément caractere par caractere
+                    destinatairesM.each {
+                        def destinataireM = User.findByUsername(it)
+                        listeNOTDistinctDestinataires.add(destinataireM)
                         //UserMessage.create(destinataire, message, true)
                     }
                 }
                 else{
-                    def destinataire = User.findByUsername(destinataires)
+                    def destinataireM = User.findByUsername(destinatairesM)
                     //UserMessage.create(destinataire, message, true)
-                    listeNOTDistinctDestinataires.add(destinataire)
+                    listeNOTDistinctDestinataires.add(destinataireM)
                 }
 
             }

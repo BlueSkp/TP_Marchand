@@ -26,10 +26,13 @@ class UserController {
 
 //        les messages envoyés, quand et à qui
         def messageEnvoyeList = Message.findAllByAuthor(userInstance)
-        def destinatairesMessageEnvoyeList = []
+        def destinatairesMessageEnvoyeList = [][]
+        def i=0
         messageEnvoyeList.each{
             def userMessageList = UserMessage.findAllByMessage(it)
+//            destinatairesMessageEnvoyeList.add([])
             destinatairesMessageEnvoyeList.add(userMessageList.collect{it.user})
+            i=i+1
         }
 //        les messages recus, quand et par qui
         def messageRecuList = UserMessage.findAllByUser(userInstance).collect{it.message}
@@ -129,4 +132,9 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+//    def getListDestinataires(){
+//        listDestinataires = UserMessage.findAllByMessage(params.message).collect{it.user}
+//        return listDestinataires
+//    }
 }
