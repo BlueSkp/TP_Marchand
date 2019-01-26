@@ -30,7 +30,59 @@
             <g:form resource="${this.user}" method="PUT">
                 <g:hiddenField name="version" value="${this.user?.version}" />
                 <fieldset class="form">
-                    <f:all bean="user"/>
+                    %{--<f:all bean="user"/>--}%
+
+                    <div class="fieldcontain required">
+                        <label>Username <span class="required-indicator">*</span> </label>
+                        <input type="text" name="username" value="${user.username}" required="" id="username">
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>Password <span class="required-indicator">*</span> </label>
+                        <g:passwordField name="password" value="${user.password}" id="password" />
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>First Name <span class="required-indicator">*</span> </label>
+                        <input type="text" name="firstName" value="${user.firstName}" required="" id="firstName">
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>Last Name <span class="required-indicator">*</span> </label>
+                        <input type="text" name="lastName" value="${user.lastName}" required="" id="lastName">
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>Mail<span class="required-indicator">*</span> </label>
+                        <input type="text" name="mail" value="${user.mail}" required="" id="mail">
+                    </div>
+
+                    <div class="fieldcontain">
+                        <label>Telephone </label>
+                        <input type="text" name="tel" value=" ${user.tel}" required="" id="tel">
+                    </div>
+
+                    <div class="fieldcontain">
+                        <label>Date of Birth</label>
+                        <g:datePicker name="dob" value="${user.dob}"
+                                      noSelection="['':'-Choose-']"
+                                      precision="day"
+                                      relativeYears="[-100..-10]"/>
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>Groupes </label>
+                        <select class="js-example-basic-multiple" name="roles" id="roles" multiple="multiple" style="width: 60%">
+                            <g:each in="${roleList}" var="role">
+                                <option selected="selected">${role.authority}</option>
+                            </g:each>
+                            <g:each in="${fr.mbds.tp.Role.list().minus(roleList)}">
+                                <option>${it.authority}</option>
+                            </g:each>
+                        </select>
+                    </div>
+
+
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />

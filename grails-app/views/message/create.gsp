@@ -83,7 +83,6 @@
                         <g:textArea name="messageContent" value="" rows="5" cols="40" id="messageContent"/>
                     </div>
 
-
                 </fieldset>
 
 

@@ -102,7 +102,7 @@ class RoleController {
                 UserRole.create(it, role, true)
             }
             oldUserList.minus(updatedMembresList).each{
-                UserRole.findByUser(it).delete(flush:true)
+                UserRole.findByUserAndRole(it,role).delete(flush:true)
             }
 
 

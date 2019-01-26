@@ -81,7 +81,13 @@ class UserController {
     }
 
     def edit(Long id) {
-        respond userService.get(id)
+        def userInstance = User.get(id)
+        def userRoleList = UserRole.findAllByUser(userInstance)
+        def roleList = userRoleList.collect{it.role}
+
+        respond userInstance, model: [roleList: roleList]
+
+        //respond userService.get(id)
     }
 
     def update(User user) {
@@ -92,6 +98,34 @@ class UserController {
 
         try {
             userService.save(user)
+
+            def updatedRolesList = []
+
+            def roles = params.roles
+            if (roles != null) {
+                if (roles.getClass()!=String) {
+                    roles.each {
+                        def role = Role.findByAuthority(it)
+                        updatedRolesList.add(role)
+//                        UserRole.create(membre, role, true)
+                    }
+                }else{
+                    def role = Role.findByAuthority(roles)
+                    updatedRolesList.add(role)
+//                    UserRole.create(membre, role, true)
+                }
+            }
+
+            def oldRolesList = UserRole.findAllByUser(user).collect{it.role}
+
+            updatedRolesList.minus(oldRolesList).each{
+                UserRole.create(user, it, true)
+            }
+            oldRolesList.minus(updatedRolesList).each{
+                UserRole.findByRoleAndUser(it,user).delete(flush:true)
+            }
+
+
         } catch (ValidationException e) {
             respond user.errors, view:'edit'
             return
@@ -113,6 +147,7 @@ class UserController {
         }
 
         userService.delete(id)
+
 
         request.withFormat {
             form multipartForm {
