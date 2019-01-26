@@ -146,7 +146,37 @@ class UserController {
             return
         }
 
-        userService.delete(id)
+        // userService.delete(id)
+        def userInstance = User.get(id)
+
+        if (userInstance) {
+            // On recupere la liste des UserMessage qui referencent le user que nous souhaitons effacer
+            def userMessages = UserMessage.findAllByUser(userInstance)
+            // On itere sur la liste et efface chaque reference
+            userMessages.each {
+                UserMessage userMessage ->
+                    userMessage.delete(flush: true)
+            }
+
+            // On recupere la liste des UserRole qui referencent le user que nous souhaitons effacer
+            def userRoles = UserRole.findAllByUser(userInstance)
+            // On itere sur la liste et efface chaque reference
+            userRoles.each {
+                UserRole userRole ->
+                    userRole.delete(flush: true)
+            }
+
+            // On recupere la liste des Messages qui referencent le user/autheur que nous souhaitons effacer
+            def messages = Message.findAllByAuthor(userInstance)
+            // On itere sur la liste et rends l'autheur à null pour chaque message
+            messages.each {
+                Message messageToUpdate ->
+                    messageToUpdate.setAuthor(User.findByUsername("deleted_user"))
+            }
+
+            //on peut enfin effacer l'instance de User
+            userInstance.delete(flush: true)
+        }
 
 
         request.withFormat {

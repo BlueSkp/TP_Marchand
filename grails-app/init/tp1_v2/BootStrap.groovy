@@ -44,17 +44,9 @@ class BootStrap {
                 UserMessage.create(userInstance,messageInstanceMBDS2, true)
         }
 
+        //placeholder user pour les users supprimés
+        def deletedUser =new User(username:"deleted_user",password:"DONT_CONNECT_WITH_ME_123(*_*)çà%ùµ£¤°0O:D°*__",firstName:"deleted_user",lastName:"deleted_user",mail:"deleted_user").save(flush:true,failOnError:true)
 
-
-
-//        def userInstance = new User(username:"username",password:"password",firstName:"first", lastName:"last",mail:"mail")
-//        def userInstance2 = new User(username:"username2",password:"password2",firstName:"first2", lastName:"last2",mail:"mail2")
-//
-//        userInstance.save(flush:true,failOnError:true)
-//        userInstance2.save(flush:true,failOnError:true)
-//
-//        def messageInstance = new Message(messageContent: "lala",author: userInstance).save(flush:true)
-//        UserMessage.create(userInstance2,messageInstance,true)
 
     }
     def destroy = {

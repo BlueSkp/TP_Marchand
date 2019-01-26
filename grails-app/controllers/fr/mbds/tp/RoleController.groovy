@@ -127,7 +127,22 @@ class RoleController {
             return
         }
 
-        roleService.delete(id)
+        //roleService.delete(id)
+        def roleInstance = Role.get(id)
+
+        if (roleInstance) {
+
+            // On recupere la liste des UserRole qui referencent le role que nous souhaitons effacer
+            def userRoles = UserRole.findAllByRole(roleInstance)
+            // On itere sur la liste et efface chaque reference
+            userRoles.each {
+                UserRole userRole ->
+                    userRole.delete(flush: true)
+            }
+
+            //on peut enfin effacer l'instance de User
+            roleInstance.delete(flush: true)
+        }
 
         request.withFormat {
             form multipartForm {

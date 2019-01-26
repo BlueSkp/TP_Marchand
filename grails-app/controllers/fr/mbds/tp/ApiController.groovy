@@ -182,7 +182,7 @@ class ApiController {
                     // On itere sur la liste et rends l'autheur à null pour chaque message
                     messages.each {
                         Message messageToUpdate ->
-                            messageToUpdate.setAuthor(null)
+                            messageToUpdate.setAuthor(User.findByUsername("deleted_user"))
                     }
 
                     //on peut enfin effacer l'instance de User
