@@ -49,7 +49,7 @@
 
 
                     <div class="fieldcontain required">
-                        <label>Destinataires <span class="required-indicator">*</span> </label>
+                        <label>Destinataires  </label>
                         %{--<input type="text" name="destinataire" value="${destinataireList.mail}" required="" id="destinataires">--}%
                         %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
                                   %{--onchange="categoryChanged(this.value);"--}%
@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="fieldcontain required">
-                        <label>Groupes <span class="required-indicator">*</span> </label>
+                        <label>Groupes</label>
                         %{--<input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">--}%
                         %{--<g:select id="role" name="role.id" from="${fr.mbds.tp.Role.listOrderByAuthority().authority}"--}%
                                   %{--onchange="categoryChanged(this.value);"--}%

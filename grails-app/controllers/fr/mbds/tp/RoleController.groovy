@@ -62,7 +62,12 @@ class RoleController {
     }
 
     def edit(Long id) {
-        respond roleService.get(id)
+        def roleInstance = Role.get(id)
+        def userRoleList = UserRole.findAllByRole(roleInstance)
+        def userList = userRoleList.collect{it.user}
+        respond roleInstance, model: [userList: userList]
+
+        //respond roleService.get(id)
     }
 
     def update(Role role) {
@@ -73,6 +78,35 @@ class RoleController {
 
         try {
             roleService.save(role)
+
+            def updatedMembresList = []
+
+            def membres = params.membres
+            if (membres != null) {
+                if (membres.getClass()!=String) {
+                    membres.each {
+                        def membre = User.findByUsername(it)
+                        updatedMembresList.add(membre)
+//                        UserRole.create(membre, role, true)
+                    }
+                }else{
+                    def membre = User.findByUsername(membres)
+                    updatedMembresList.add(membre)
+//                    UserRole.create(membre, role, true)
+                }
+            }
+
+            def oldUserList = UserRole.findAllByRole(role).collect{it.user}
+
+            updatedMembresList.minus(oldUserList).each{
+                UserRole.create(it, role, true)
+            }
+            oldUserList.minus(updatedMembresList).each{
+                UserRole.findByUser(it).delete(flush:true)
+            }
+
+
+
         } catch (ValidationException e) {
             respond role.errors, view:'edit'
             return

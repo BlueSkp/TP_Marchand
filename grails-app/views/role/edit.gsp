@@ -29,7 +29,24 @@
             <g:form resource="${this.role}" method="PUT">
                 <g:hiddenField name="version" value="${this.role?.version}" />
                 <fieldset class="form">
-                    <f:all bean="role"/>
+                    %{--<f:all bean="role"/>--}%
+                    <div class="fieldcontain required">
+                        <label>Name <span class="required-indicator">*</span> </label>
+                        <input type="text" name="authority" value="${role.authority}" required="" id="authority">
+                    </div>
+
+                    <div class="fieldcontain required">
+                        <label>Membre(s) du groupe </label>
+                        <select class="js-example-basic-multiple" name="membres" multiple="multiple" style="width: 60%" >
+                            <g:each in="${userList}" var="user">
+                                <option selected="selected">${user.username}</option>
+                            </g:each>
+                            <g:each in="${fr.mbds.tp.User.list().minus(userList)}">
+                                <option>${it.username}</option>
+                            </g:each>
+                        </select>
+                    </div>
+
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
