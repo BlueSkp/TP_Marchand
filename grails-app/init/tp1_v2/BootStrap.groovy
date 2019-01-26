@@ -45,7 +45,10 @@ class BootStrap {
         }
 
         //placeholder user pour les users supprimés
-        def deletedUser =new User(username:"deleted_user",password:"DONT_CONNECT_WITH_ME_123(*_*)çà%ùµ£¤°0O:D°*__",firstName:"deleted_user",lastName:"deleted_user",mail:"deleted_user").save(flush:true,failOnError:true)
+        new User(username:"deleted_user",password:"DONT_CONNECT_WITH_ME_123(*_*)çà%ùµ£¤°0O:D°*__",firstName:"deleted_user",lastName:"deleted_user",mail:"deleted_user").save(flush:true,failOnError:true)
+
+        //user sans groupe
+        new User(username:"ChungHaKim",password:"1234",firstName:"Kim",lastName:"ChungHa",mail:"KimChungHa@ioi.ko").save(flush:true,failOnError:true)
 
 
     }

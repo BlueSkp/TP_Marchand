@@ -109,7 +109,12 @@ class MessageController {
     }
 
     def edit(Long id) {
-        respond messageService.get(id)
+        def messageInstance = Message.get(id)
+        def userMessageList = UserMessage.findAllByMessage(messageInstance)
+        def userList = userMessageList.collect{it.user}
+        respond messageInstance, model: [userList: userList]
+
+        //respond messageService.get(id)
     }
 
     def update(Message message) {
@@ -119,26 +124,61 @@ class MessageController {
         }
 
         try {
-            messageService.save(message)
+
+            //messageService.save(message) (le messge en lui mêmene peut pas etre modifié
+
+//            Destinataires additionels:
+            //liste de tous les destinataires à qui il faut envoyer le message, avec répition possible (car membres de plusieurs groupes par exemples)
+            def listeNOTDistinctDestinataires = []
+
+            def destinatairesM = params.destinataires
+            if (destinatairesM != null) {
+                if (destinatairesM.getClass()!=String){ //ce test est dans le cas qu'il n'y est qu'un seul element, au quel cas each diviserait l'élément caractere par caractere
+                    destinatairesM.each {
+                        def destinataireM = User.findByUsername(it)
+                        listeNOTDistinctDestinataires.add(destinataireM)
+                        //UserMessage.create(destinataire, message, true)
+                    }
+                }
+                else{
+                    def destinataireM = User.findByUsername(destinatairesM)
+                    //UserMessage.create(destinataire, message, true)
+                    listeNOTDistinctDestinataires.add(destinataireM)
+                }
+
+            }
+            def groupes = params.groupes
+            if (groupes != null) {
+                if (groupes.getClass()!=String) {
+                    groupes.each {
+                        def groupe = Role.findByAuthority(it)
+                        def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
+                        membresGroupe.each {
+                            listeNOTDistinctDestinataires.add(it)
+                            //UserMessage.create(it, message, true)
+                        }
+                    }
+                }else{
+                    def groupe = Role.findByAuthority(groupes)
+                    def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
+                    membresGroupe.each {
+                        //UserMessage.create(it, message, true)
+                        listeNOTDistinctDestinataires.add(it)
+                    }
+                }
+
+            }
+
+            def listeDistinctDestinataires = listeNOTDistinctDestinataires.unique()
+            listeDistinctDestinataires.each{
+                UserMessage.create(it, message, true)
+            }
+
+
         } catch (ValidationException e) {
             respond message.errors, view:'edit'
             return
         }
-
-        // Recuperer le destinataire avec l'id du destinataire
-        // Instancier ce dernier
-        def destinataire = User.get(params.test)
-
-
-        // Creer une instance de UserMessage correspondant à l'envoie
-        // de ce message
-        // Persister l'instance UserMessage nouvellement créée
-        UserMessage userMessageInstance = UserMessage.create(destinataire,message,true);
-
-
-        //Si groupe spécidifié:
-        //Recuperer l'instance de Role désigné
-        // Créer un nouveau UserMessage pour tous les utilisateurs dudit Groupe
 
         request.withFormat {
             form multipartForm {
@@ -150,20 +190,22 @@ class MessageController {
     }
 
     def delete(Long id) {
-        if (id == null) {
-            notFound()
-            return
-        }
+       // Le message a deja été envoyé, il ne peut pas être supprimé
 
-        messageService.delete(id)
+//        if (id == null) {
+//            notFound()
+//            return
+//        }
+//
+//        //messageService.delete(id)
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'message.label', default: 'Message'), id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
+//        request.withFormat {
+//            form multipartForm {
+//                flash.message = message(code: 'default.deleted.message', args: [message(code: 'message.label', default: 'Message'), id])
+                  redirect action:"index", method:"GET"
+//            }
+//            '*'{ render status: NO_CONTENT }
+//        }
     }
 
     protected void notFound() {

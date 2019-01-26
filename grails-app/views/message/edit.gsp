@@ -1,3 +1,4 @@
+<%@ page import="fr.mbds.tp.Role" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,8 +30,60 @@
             <g:form resource="${this.message}" method="PUT">
                 <g:hiddenField name="version" value="${this.message?.version}" />
                 <fieldset class="form">
-                    <f:all bean="message"/>
+                    %{--<f:all bean="message"/>--}%
 
+                    <p> Le message a déjà été envoyé, vous ne pouvez plus le modifier. Vous pouvez l'envoyer à des destinataires supplémentaires.</p>
+                    <ol class="property-list message">
+
+                        <li class="fieldcontain">
+                            <label>Author</label>
+                            <div class="property-value" aria-labelledby="author-label">
+                                <g:link controller="user" action="show" id="${message.author.id}">
+                                    ${message.author.firstName+" "+message.author.lastName}
+                                </g:link>
+                            </div>
+                        </li>
+
+                    <li class="fieldcontain">
+                        <label>Destinataire</label>
+                        <div class="property-value" aria-labelledby="destinataire-label">
+                            <g:each in="${userList}" var="user">
+                                <g:link controller="user" action="show" id="${user.id}">
+                                    ${user.firstName+" "+user.lastName},
+                                </g:link>
+                            </g:each>
+                        </div>
+                    </li>
+
+                        <div class="fieldcontain required">
+                            <label>Destinataires additionels </label>
+                            <select class="js-example-basic-multiple" name="destinataires" multiple="multiple" style="width: 60%">
+                                <g:each in="${fr.mbds.tp.User.list().minus(userList)}">
+                                    <option>${it.username}</option>
+                                </g:each>
+                            </select>
+                        </div>
+
+                        <div class="fieldcontain required">
+                            <label>Groupes</label>
+                            <select class="js-example-basic-multiple" name="groupes" multiple="multiple" style="width: 60%">
+                                <g:each in="${fr.mbds.tp.Role.list()}">
+                                    <option>${it.authority}</option>
+                                </g:each>
+                            </select>
+                        </div>
+
+                        <li class="fieldcontain">
+                            <label>Message Content</label>
+                            <div class="property-value" aria-labelledby="messageContent-label">${message.messageContent}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <label>Date Created</label>
+                            <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
+                        </li>
+
+                    </ol>
 
 
                 </fieldset>
