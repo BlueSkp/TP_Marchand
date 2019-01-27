@@ -39,7 +39,7 @@ Ici se trouvent des points à préciser sur l'application.
 
 **PARTIE II : TP WebServices REST**
 
-1. La collection POSTMAN est disponible sur le git "Postman Collections".
+1. La collection POSTMAN est disponible sur le git "Postman Collections". Il faut tourner le test avant d’avoir modifié la base de données, au risque que certains éléments aient été modifiés ou n’existent plus.
 
 2. Les points d'entrée sur User et Message permettent de faire des GET/POST/PUT/DELETE.
 
