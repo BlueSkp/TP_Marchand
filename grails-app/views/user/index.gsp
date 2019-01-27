@@ -24,19 +24,11 @@
                     <g:sortableColumn property="username" title="Username" />
                     <g:sortableColumn property="firstName" title="Firstname" />
                     <g:sortableColumn property="lastName" title="Lastname" />
-                    %{--<th>Username</th>--}%
-                    %{--<th>Firstname</th>--}%
-                    %{--<th>Lastname</th>--}%
                     <g:sortableColumn property="mail" title="Mail" />
                     <g:sortableColumn property="tel" title="Telephone" />
                     <g:sortableColumn property="dob" title="Dob" />
                     <g:sortableColumn property="dateCreated" title="DateCreated" />
                     <g:sortableColumn property="lastUpdated" title="LastUpdated" />
-                    %{--<th>Mail</th>--}%
-                    %{--<th>Telephone</th>--}%
-                    %{--<th>Dob</th>--}%
-                    %{--<th>DateCreated</th>--}%
-                    %{--<th>LastUpdated</th>--}%
 
                 </tr>
 
@@ -52,11 +44,8 @@
                         <td>${user.dateCreated}</td>
                         <td>${user.lastUpdated}</td>
                     </tr>
-
-                    %{--${user}--}%
                 </g:each>
             </table>
-            %{--$(userList)--}%
 
             <div class="pagination">
                 <g:paginate total="${userCount ?: 0}" />

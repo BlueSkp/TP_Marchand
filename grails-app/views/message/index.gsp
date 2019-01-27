@@ -34,8 +34,6 @@
                         <td><g:link controller="user" action="show" id="${message.author.id}">${message.author.lastName} ${message.author.firstName}</g:link></td>
                         <td>${message.dateCreated}</td>
                     </tr>
-
-                %{--${user}--}%
                 </g:each>
             </table>
 

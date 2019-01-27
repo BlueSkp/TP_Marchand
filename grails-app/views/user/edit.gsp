@@ -73,7 +73,7 @@
                     <div class="fieldcontain required">
                         <label>Groupes </label>
                         <select class="js-example-basic-multiple" name="roles" id="roles" multiple="multiple" style="width: 60%">
-                            <g:each in="${roleList}" var="role">
+                            <g:each in="${roleList}" var="role"> %{--prepopulation du select--}%
                                 <option selected="selected">${role.authority}</option>
                             </g:each>
                             <g:each in="${fr.mbds.tp.Role.list().minus(roleList)}">

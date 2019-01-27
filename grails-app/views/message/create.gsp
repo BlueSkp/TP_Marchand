@@ -34,11 +34,6 @@
                     <fieldset class="form">
                     <div class="fieldcontain required">
                         <label>Author <span class="required-indicator">*</span> </label>
-                        %{--<input type="text" name="messageContent" value="${authorInstance.firstName}" required="" id="authorInstance">--}%
-                        %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
-                                  %{--onchange="categoryChanged(this.value);"--}%
-                                 %{--value="${authorInstance.username}"--}%
-                        %{--/>--}%
                         <select class="js-example-basic-multiple" name="authorString" style="width: 60%" optionValue="username" >
                             <g:each in="${fr.mbds.tp.User.list()}">
                                 <option>${it.username}</option>
@@ -46,16 +41,8 @@
                         </select>
                     </div>
 
-
-
                     <div class="fieldcontain required">
                         <label>Destinataires  </label>
-                        %{--<input type="text" name="destinataire" value="${destinataireList.mail}" required="" id="destinataires">--}%
-                        %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername().username}"--}%
-                                  %{--onchange="categoryChanged(this.value);"--}%
-                                  %{--value=""--}%
-                                %{--multiple="yes"--}%
-                        %{--/>--}%
                         <select class="js-example-basic-multiple" name="destinataires" multiple="multiple" style="width: 60%">
                             <g:each in="${fr.mbds.tp.User.list()}">
                                 <option>${it.username}</option>
@@ -65,12 +52,6 @@
 
                     <div class="fieldcontain required">
                         <label>Groupes</label>
-                        %{--<input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">--}%
-                        %{--<g:select id="role" name="role.id" from="${fr.mbds.tp.Role.listOrderByAuthority().authority}"--}%
-                                  %{--onchange="categoryChanged(this.value);"--}%
-                                  %{--value=""--}%
-                                  %{--multiple="yes"--}%
-                        %{--/>--}%
                         <select class="js-example-basic-multiple" name="groupes" multiple="multiple" style="width: 60%">
                             <g:each in="${Role.list()}">
                                 <option>${it.authority}</option>

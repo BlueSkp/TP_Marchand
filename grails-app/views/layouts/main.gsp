@@ -51,6 +51,8 @@
         <g:message code="spinner.alt" default="Loading&hellip;"/>
     </div>
 
+
+    <!-- Debut: Custom Page JavaScript Should Go Here -->
     <asset:javascript src="application.js"/>
 
     <script type="text/javascript" src="${request.contextPath}js/common.js"></script>

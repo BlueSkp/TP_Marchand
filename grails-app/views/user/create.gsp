@@ -70,12 +70,6 @@
 
                     <div class="fieldcontain required">
                         <label>Groupes </label>
-                        %{--<input type="text" name="groupes" value="${groupeList.authority}" required="" id="groupes">--}%
-                        %{--<g:select id="role" name="role.id" from="${fr.mbds.tp.Role.listOrderByAuthority()}" optionKey="id"--}%
-                                  %{--onchange="categoryChanged(this.value);"--}%
-                                  %{--value=""--}%
-                                  %{--multiple="yes"--}%
-                        %{--/>--}%
                         <select class="js-example-basic-multiple" name="roles" id="roles" multiple="multiple" style="width: 60%">
                             <g:each in="${fr.mbds.tp.Role.list()}">
                                 <option>${it.authority}</option>

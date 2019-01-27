@@ -20,7 +20,6 @@ class RoleController {
         def userRoleList = UserRole.findAllByRole(roleInstance)
         def userList = userRoleList.collect{it.user}
         respond roleInstance, model: [userList: userList]
-        //respond roleService.get(id)
     }
 
     def create() {
@@ -34,7 +33,10 @@ class RoleController {
         }
 
         try {
+            //sauvegarde du role
             roleService.save(role)
+
+            //sauvegarde des membres du groupes dans userRole :
             def membres = params.membres
             if (membres != null) {
                 if (membres.getClass()!=String) {
@@ -67,7 +69,6 @@ class RoleController {
         def userList = userRoleList.collect{it.user}
         respond roleInstance, model: [userList: userList]
 
-        //respond roleService.get(id)
     }
 
     def update(Role role) {
@@ -79,6 +80,7 @@ class RoleController {
         try {
             roleService.save(role)
 
+            //liste update des membres voulus dans le groupe (certains sont suprimés, d'autres ajoutés)
             def updatedMembresList = []
 
             def membres = params.membres
@@ -87,20 +89,21 @@ class RoleController {
                     membres.each {
                         def membre = User.findByUsername(it)
                         updatedMembresList.add(membre)
-//                        UserRole.create(membre, role, true)
                     }
                 }else{
                     def membre = User.findByUsername(membres)
                     updatedMembresList.add(membre)
-//                    UserRole.create(membre, role, true)
                 }
             }
 
+            //liste des anciens membres du groupe
             def oldUserList = UserRole.findAllByRole(role).collect{it.user}
 
+            //list des membres à rajouter
             updatedMembresList.minus(oldUserList).each{
                 UserRole.create(it, role, true)
             }
+            //list des membres à supprimer
             oldUserList.minus(updatedMembresList).each{
                 UserRole.findByUserAndRole(it,role).delete(flush:true)
             }
@@ -127,7 +130,6 @@ class RoleController {
             return
         }
 
-        //roleService.delete(id)
         def roleInstance = Role.get(id)
 
         if (roleInstance) {

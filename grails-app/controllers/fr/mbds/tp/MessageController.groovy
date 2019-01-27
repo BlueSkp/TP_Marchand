@@ -21,19 +21,9 @@ class MessageController {
         def userMessageList = UserMessage.findAllByMessage(messageInstance)
         def userList = userMessageList.collect{it.user}
         respond messageInstance, model: [userList: userList]
-
-        //respond Message.get(id)
     }
 
     def create() {
-//      SpringSecurityService.getPrincipale()
-//        def authorInstance = User.get(principal.id)
-//        if (!authorInstance)
-//            authorInstance = User.get(10)
-//        def destinataireList = User.getAll()
-//        def groupeList = Role.getAll()
-//        respond new Message(params), model: [authorInstance : authorInstance,destinataireList: destinataireList,groupeList: groupeList]
-
         respond new Message(params)
     }
 
@@ -57,12 +47,11 @@ class MessageController {
                     destinatairesM.each {
                         def destinataireM = User.findByUsername(it)
                         listeNOTDistinctDestinataires.add(destinataireM)
-                        //UserMessage.create(destinataire, message, true)
+
                     }
                 }
                 else{
                     def destinataireM = User.findByUsername(destinatairesM)
-                    //UserMessage.create(destinataire, message, true)
                     listeNOTDistinctDestinataires.add(destinataireM)
                 }
 
@@ -75,20 +64,19 @@ class MessageController {
                         def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
                         membresGroupe.each {
                             listeNOTDistinctDestinataires.add(it)
-                            //UserMessage.create(it, message, true)
                         }
                     }
                 }else{
                     def groupe = Role.findByAuthority(groupes)
                     def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
                     membresGroupe.each {
-                        //UserMessage.create(it, message, true)
                         listeNOTDistinctDestinataires.add(it)
                     }
                 }
 
             }
 
+            //envoie des messages aux destinataires distincts
             def listeDistinctDestinataires = listeNOTDistinctDestinataires.unique()
             listeDistinctDestinataires.each{
                 UserMessage.create(it, message, true)
@@ -114,7 +102,6 @@ class MessageController {
         def userList = userMessageList.collect{it.user}
         respond messageInstance, model: [userList: userList]
 
-        //respond messageService.get(id)
     }
 
     def update(Message message) {
@@ -137,12 +124,10 @@ class MessageController {
                     destinatairesM.each {
                         def destinataireM = User.findByUsername(it)
                         listeNOTDistinctDestinataires.add(destinataireM)
-                        //UserMessage.create(destinataire, message, true)
                     }
                 }
                 else{
                     def destinataireM = User.findByUsername(destinatairesM)
-                    //UserMessage.create(destinataire, message, true)
                     listeNOTDistinctDestinataires.add(destinataireM)
                 }
 
@@ -155,20 +140,19 @@ class MessageController {
                         def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
                         membresGroupe.each {
                             listeNOTDistinctDestinataires.add(it)
-                            //UserMessage.create(it, message, true)
                         }
                     }
                 }else{
                     def groupe = Role.findByAuthority(groupes)
                     def membresGroupe = UserRole.findAllByRole(groupe).collect { it.user }
                     membresGroupe.each {
-                        //UserMessage.create(it, message, true)
                         listeNOTDistinctDestinataires.add(it)
                     }
                 }
 
             }
 
+            //envoie des messages
             def listeDistinctDestinataires = listeNOTDistinctDestinataires.unique()
             listeDistinctDestinataires.each{
                 UserMessage.create(it, message, true)
@@ -192,20 +176,7 @@ class MessageController {
     def delete(Long id) {
        // Le message a deja été envoyé, il ne peut pas être supprimé
 
-//        if (id == null) {
-//            notFound()
-//            return
-//        }
-//
-//        //messageService.delete(id)
-
-//        request.withFormat {
-//            form multipartForm {
-//                flash.message = message(code: 'default.deleted.message', args: [message(code: 'message.label', default: 'Message'), id])
-                  redirect action:"index", method:"GET"
-//            }
-//            '*'{ render status: NO_CONTENT }
-//        }
+      redirect action:"index", method:"GET"
     }
 
     protected void notFound() {

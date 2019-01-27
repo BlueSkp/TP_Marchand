@@ -58,7 +58,7 @@
                         <div class="fieldcontain required">
                             <label>Destinataires additionels </label>
                             <select class="js-example-basic-multiple" name="destinataires" multiple="multiple" style="width: 60%">
-                                <g:each in="${fr.mbds.tp.User.list().minus(userList)}">
+                               <g:each in="${fr.mbds.tp.User.list().minus(userList)}">
                                     <option>${it.username}</option>
                                 </g:each>
                             </select>

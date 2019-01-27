@@ -88,15 +88,6 @@ class ApiController {
                     messageInstance = new Message(author: authorInstance, messageContent: params.messageContent)
                     if (messageInstance.save(flush: true))
 
-                    // Ajouter destinataires
-//                        if (params.receiver.id)
-//                        {
-//                            def receiverInstance = User.get(params.receiver.id)
-//                            if (receiverInstance){
-//                                new UserMessage(user: receiverInstance, message: messageInstance).save(flush:true)
-//                            }
-//                        }
-
                         render(status: 201)
                 }
 
@@ -179,7 +170,7 @@ class ApiController {
 
                     // On recupere la liste des Messages qui referencent le user/autheur que nous souhaitons effacer
                     def messages = Message.findAllByAuthor(userInstance)
-                    // On itere sur la liste et rends l'autheur à null pour chaque message
+                    // On itere sur la liste et remplace l'autheur par "deleted_user" pour chaque message
                     messages.each {
                         Message messageToUpdate ->
                             messageToUpdate.setAuthor(User.findByUsername("deleted_user"))
@@ -238,7 +229,6 @@ class ApiController {
                     render(status:404,text:"Le message n'existe pas (mauvais ID)")
             }else if (params.authorId&&params.messageContent){
                 //Verifier auteur
-                //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
                     def authorInstance = User.get(params.authorId)
 
                     if (authorInstance) {
@@ -276,7 +266,6 @@ class ApiController {
                         render(status: 404, text: "Le message n'existe pas (mauvais ID)")
                 } else if (params.authorId && params.messageContent) {
                     //Verifier auteur
-                    //def authorInstance = params.author? params.author.id ? User.get(params.author.id) : null : null
                     def authorInstance = User.get(params.authorId)
 
                     if (authorInstance) {
@@ -299,6 +288,7 @@ class ApiController {
     }
 
 
+    //fonction qui crée les UserMessage
     def createNewUserMessage( idreceiver , Message messageInstance){
         // Ajouter destinataires
         if (idreceiver)
@@ -317,7 +307,7 @@ class ApiController {
             render(status:400,text:"Il n'y a pas l'Id du destinataire")
     }
 
-
+//fonction qui fait appel à la fonction createNewUserMessage pour creer les UserMessage de tout un groupe
     def createNewGroupMessage( idGroupe , Message messageInstance){
         // Ajouter destinataires
         if (idGroupe)
@@ -326,11 +316,7 @@ class ApiController {
             // On recupere la liste des UserRole du groupe Role voulu
             def userRoles = UserRole.findAllByRole(roleInstance)
             // On itere sur la liste et pour chaque user on creer un user message
-            //userRoles.each {
-            //    UserRole userRole ->
-            //        createNewUserMessage( userRole.getUser().getId() , messageInstance)
 
-            //}
             for ( i in 1..userRoles.size()) {
                 createNewUserMessage( userRoles[i-1].getUser().getId() , messageInstance)
                 if (response.status!=201)

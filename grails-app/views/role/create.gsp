@@ -37,11 +37,6 @@
 
                     <div class="fieldcontain required">
                         <label>Membre(s) du groupe </label>
-                        %{--<g:select id="user" name="user.id" from="${fr.mbds.tp.User.listOrderByUsername()}" optionKey="id"--}%
-                                  %{--noSelection="[null:' ']"--}%
-                                  %{--onchange="categoryChanged(this.value);"--}%
-                            %{--multiple="yes"--}%
-                       %{--/>--}%
                         <select class="js-example-basic-multiple" name="membres" multiple="multiple" style="width: 60%" value="">
                             <g:each in="${fr.mbds.tp.User.list()}">
                                 <option>${it.username}</option>

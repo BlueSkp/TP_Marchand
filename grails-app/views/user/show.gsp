@@ -91,76 +91,60 @@
                         <g:each in="${messageEnvoyeList}" var="message" status="i">
                             <ol class="property-list message">
 
-                            <li class="fieldcontain">
-                                <span class="property-label">Message</span>
-                            <g:link controller="message" action="show" id="${message.id}">
-                                ${message.messageContent},
-                            </g:link>
-                            </li>
+                                <li class="fieldcontain">
+                                    <span class="property-label">Message</span>
+                                <g:link controller="message" action="show" id="${message.id}">
+                                    ${message.messageContent},
+                                </g:link>
+                                </li>
 
-                            <li class="fieldcontain">
-                                <span class="property-label">Date Created</span>
-                                <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
-                            </li>
+                                <li class="fieldcontain">
+                                    <span class="property-label">Date Created</span>
+                                    <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
+                                </li>
 
-                            <li class="fieldcontain">
-                                <span id="destinataire-label" class="property-label">Destinataire</span>
-                                <div class="property-value" aria-labelledby="destinataire-label">
-                                        <g:each in="${destinatairesMessageEnvoyeList[i]}" var="destinataireMessage">
-                                            <g:link controller="user" action="show" id="${destinataireMessage.id}">
-                                                ${destinataireMessage.firstName+" "+destinataireMessage.lastName},
-                                            </g:link>
-                                        </g:each>
-                                        %{--<g:each controller="user" action="getListDestinataires" var="destinataireMessage">--}%
-                                            %{--<g:link controller="user" action="show" id="${destinataireMessage.id}">--}%
-                                                %{--${destinataireMessage.firstName+" "+destinataireMessage.lastName},--}%
-                                            %{--</g:link>--}%
-                                        %{--</g:each>--}%
-                                </div>
-                            </li>
+                                <li class="fieldcontain">
+                                    <span id="destinataire-label" class="property-label">Destinataire</span>
+                                    <div class="property-value" aria-labelledby="destinataire-label">
+                                            <g:each in="${destinatairesMessageEnvoyeList[i]}" var="destinataireMessage">
+                                                <g:link controller="user" action="show" id="${destinataireMessage.id}">
+                                                    ${destinataireMessage.firstName+" "+destinataireMessage.lastName},
+                                                </g:link>
+                                            </g:each>
+                                    </div>
+                                </li>
                             </ol>
                         </g:each>
-                    %{--</div>--}%
-                %{--</li>--}%
-
-            %{--</ol>--}%
                 </div>
         </div>
 
         <div id="Recu" class="tabcontent">
             <div class="scroll">
 
-                %{--<li class="fieldcontain">--}%
-                    %{--<h1>Messages Reçus</h1>--}%
-                    %{--<div class="property-value" aria-labelledby="membre-label" >--}%
-                        <g:each in="${messageRecuList.reverse()}" var="message">
+                <g:each in="${messageRecuList.reverse()}" var="message">
 
-                            <ol class="property-list message">
-                            <li class="fieldcontain">
-                                <span class="property-label">Message</span>
-                                <g:link controller="message" action="show" id="${message.id}">
-                                    ${message.messageContent},
+                    <ol class="property-list message">
+                        <li class="fieldcontain">
+                            <span class="property-label">Message</span>
+                            <g:link controller="message" action="show" id="${message.id}">
+                                ${message.messageContent},
+                            </g:link>
+
+                        <li class="fieldcontain">
+                            <span class="property-label">Date Created</span>
+                            <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="author-label" class="property-label">Author</span>
+                            <div class="property-value" aria-labelledby="destinataire-label">
+                                <g:link controller="user" action="show" id="${message.author.id}">
+                                    ${message.author.firstName+" "+message.author.lastName},
                                 </g:link>
-
-                            <li class="fieldcontain">
-                                <span class="property-label">Date Created</span>
-                                <div class="property-value" aria-labelledby="messageDate-label">${message.dateCreated}</div>
-                            </li>
-
-                            <li class="fieldcontain">
-                                <span id="author-label" class="property-label">Author</span>
-                                <div class="property-value" aria-labelledby="destinataire-label">
-                                    <g:link controller="user" action="show" id="${message.author.id}">
-                                        ${message.author.firstName+" "+message.author.lastName},
-                                    </g:link>
-                                </div>
-                            </li>
-                            </ol>
-                        </g:each>
-                    %{--</div>--}%
-                %{--</li>--}%
-
-            %{--</ol>--}%
+                            </div>
+                        </li>
+                    </ol>
+                </g:each>
             </div>
         </div>
 

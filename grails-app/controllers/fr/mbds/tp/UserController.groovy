@@ -30,7 +30,6 @@ class UserController {
         def i=0
         messageEnvoyeList.each{
             def userMessageList = UserMessage.findAllByMessage(it)
-//            destinatairesMessageEnvoyeList.add([])
             destinatairesMessageEnvoyeList.add(userMessageList.collect{it.user})
             i=i+1
         }
@@ -38,7 +37,7 @@ class UserController {
         def messageRecuList = UserMessage.findAllByUser(userInstance).collect{it.message}
 
         respond userInstance, model: [roleList: roleList, messageEnvoyeList: messageEnvoyeList,destinatairesMessageEnvoyeList:destinatairesMessageEnvoyeList,messageRecuList:messageRecuList]
-        //respond userService.get(id)
+
     }
 
     def create() {
@@ -53,6 +52,8 @@ class UserController {
 
         try {
             userService.save(user)
+
+            //ajout de l'utilisateur aux groupes sélectionnés (si il y en a de selectionné)
             def roles = params.roles
             if (roles != null) {
                 if (roles.getClass()!=String) {
@@ -87,7 +88,6 @@ class UserController {
 
         respond userInstance, model: [roleList: roleList]
 
-        //respond userService.get(id)
     }
 
     def update(User user) {
@@ -97,8 +97,11 @@ class UserController {
         }
 
         try {
+            //update du user
             userService.save(user)
 
+            //update du UserRole :
+            //list des groupes updaté auxquels l'utilisateur appartien
             def updatedRolesList = []
 
             def roles = params.roles
@@ -107,20 +110,21 @@ class UserController {
                     roles.each {
                         def role = Role.findByAuthority(it)
                         updatedRolesList.add(role)
-//                        UserRole.create(membre, role, true)
                     }
                 }else{
                     def role = Role.findByAuthority(roles)
                     updatedRolesList.add(role)
-//                    UserRole.create(membre, role, true)
                 }
             }
 
+            //list des roles auxquels l'utilisateur appartenait
             def oldRolesList = UserRole.findAllByUser(user).collect{it.role}
 
+            //userrole à rajouter
             updatedRolesList.minus(oldRolesList).each{
                 UserRole.create(user, it, true)
             }
+            //userrole à supprimer
             oldRolesList.minus(updatedRolesList).each{
                 UserRole.findByRoleAndUser(it,user).delete(flush:true)
             }
@@ -146,7 +150,6 @@ class UserController {
             return
         }
 
-        // userService.delete(id)
         def userInstance = User.get(id)
 
         if (userInstance) {
@@ -168,7 +171,7 @@ class UserController {
 
             // On recupere la liste des Messages qui referencent le user/autheur que nous souhaitons effacer
             def messages = Message.findAllByAuthor(userInstance)
-            // On itere sur la liste et rends l'autheur à null pour chaque message
+            // On itere sur la liste et remplace l'autheur par "deleted_user" pour chaque message
             messages.each {
                 Message messageToUpdate ->
                     messageToUpdate.setAuthor(User.findByUsername("deleted_user"))
@@ -198,8 +201,4 @@ class UserController {
         }
     }
 
-//    def getListDestinataires(){
-//        listDestinataires = UserMessage.findAllByMessage(params.message).collect{it.user}
-//        return listDestinataires
-//    }
 }

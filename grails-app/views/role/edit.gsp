@@ -38,7 +38,7 @@
                     <div class="fieldcontain required">
                         <label>Membre(s) du groupe </label>
                         <select class="js-example-basic-multiple" name="membres" multiple="multiple" style="width: 60%" >
-                            <g:each in="${userList}" var="user">
+                            <g:each in="${userList}" var="user">%{--prepopulation du select--}%
                                 <option selected="selected">${user.username}</option>
                             </g:each>
                             <g:each in="${fr.mbds.tp.User.list().minus(userList)}">
