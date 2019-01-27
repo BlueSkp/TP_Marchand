@@ -8,9 +8,9 @@ Ici se trouvent des points à préciser sur l'application.
 
 1.Seul un membre du groupe ROLE_ADMIN peut se connecter. Par défaut il n'y en a qu'un :
 
-        Nom d'utilisateur : `admin`
+        Nom d'utilisateur : admin
         
-        Mot de passe : `secret`
+        Mot de passe : secret
 
 
 2.Cette application permet de faire les actions de CRUD sur les entités "user" et "role".
