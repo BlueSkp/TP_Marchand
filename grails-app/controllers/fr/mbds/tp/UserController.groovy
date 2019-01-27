@@ -152,6 +152,13 @@ class UserController {
 
         def userInstance = User.get(id)
 
+        //deleted_user ne peut pas être supprimé
+        if (userInstance.username.equals("deleted_user"))
+        {
+            redirect action:"index", method:"GET"
+            return
+        }
+
         if (userInstance) {
             // On recupere la liste des UserMessage qui referencent le user que nous souhaitons effacer
             def userMessages = UserMessage.findAllByUser(userInstance)
